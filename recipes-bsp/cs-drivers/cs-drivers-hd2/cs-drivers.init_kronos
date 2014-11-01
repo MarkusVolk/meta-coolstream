@@ -1,0 +1,88 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          cs-drivers
+# Required-Start:
+# Required-Stop:
+# Should-Start:      udev-cache
+# Should-stop:
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Load CS drivers.
+# Description:       Load the modules for Coolstream devices.
+### END INIT INFO
+
+im()
+{
+	modname=$1
+	modsane=${1//-/_}
+	params=$(eval echo \$OPT_${modsane})
+	shift
+	file=/lib/modules/${KVER}/${modname}.ko
+	# the CS modules are in /lib/modules/$KVER/*,
+	# own built modules are in /lib/modules/$KVER/kernel/... subdirectories
+	if test -e $file; then
+		/sbin/insmod $file ${params:-$@}
+	else
+		/sbin/modprobe $modname $@
+	fi
+}
+
+# simulate busybox makedevs
+makedevs()
+{
+	DIR=$1
+	while read name type mode uid gid major minor; do
+		test -z "$name" -o "x$name" = "x#" && continue
+		case x$type in
+		x) ;;
+		xd) mkdir -p -m $mode $DIR/$name ;;
+		*) mknod -m $mode $DIR/$name $type $major $minor ;;
+		esac
+	done
+}
+
+case $1 in
+start)
+	read KVER < /proc/sys/kernel/osrelease
+	# set all "option foo ..." as OPT_foo="..." variables
+	eval $(sed -n "/^options\s/{
+		s/^options\s\(\S\+\)\s\(.*\)\$/OPT_\1=\"\2\"/;
+		s/^\(\S\+\)-/\1_/g;
+		s/^\(\S\+\)-/\1_/g;
+		s/^\(\S\+\)-/\1_/g;
+		p }" /etc/modprobe.conf 2>/dev/null)
+	im lnxplatnativeDrv.ko
+	im lnxKKALDrv.ko
+	im lnxnotifyqDrv.ko
+	im lnxplatDrv.ko
+#	im lnxplatSAR.ko
+	im lnxscsDrv.ko
+#	im lnxfssDrv.ko
+	im lnxcssDrv.ko
+	im lnxtmasDrv.ko
+	im lnxtmvssDrvGPL.ko
+	im lnxtmvssDrv.ko
+	im lnxpvrDrv.ko
+	im lnxdvbciDrv.ko
+#	im lnxIPfeDrv.ko
+	im framebuffer.ko cnxtfb_standalone=1 cnxtfb_hdwidth=1280 cnxtfb_hdheight=720 cnxtfb_autoscale_sd=2
+
+#optional 3d driver
+#	im pvrsrvkm.ko
+
+#	im pvrnxpdc.ko
+#	im pvrvssbc.ko
+	im control.ko
+	im frontpanel.ko
+
+	im blazer.ko
+	im tavor.ko
+	im a8296.ko
+	im av201x.ko
+	im sharp780x.ko
+	im avl6211.ko
+	im dvb_api.ko
+	im dvb_api_prop.ko
+	im cifs.ko
+	;;
+esac

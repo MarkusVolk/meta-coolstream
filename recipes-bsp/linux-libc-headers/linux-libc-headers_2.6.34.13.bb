@@ -1,3 +1,5 @@
+COMPATIBLE_MACHINE = "coolstream-hd1"
+
 require linux-libc-headers.inc
 
 SRC_URI = " \

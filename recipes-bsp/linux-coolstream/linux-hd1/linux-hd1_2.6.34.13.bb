@@ -4,7 +4,7 @@ DEPENDS += "xz-native"
 DEPENDS += "u-boot-mkimage-native"
 
 DESCRIPTION = "Linux kernel for the Coolstream HD1 boxes"
-COMPATIBLE_MACHINE = "coolstream"
+COMPATIBLE_MACHINE = "coolstream-hd1"
 
 PR = "r1"
 
