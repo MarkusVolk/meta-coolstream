@@ -5,6 +5,8 @@ LICENSE = "proprietary"
 LIC_FILES_CHKSUM = "file://license;md5=17a6b3d5436a55985b200c725761907a"
 
 COMPATIBLE_MACHINE = "coolstream-hd1"
+PROVIDES = "virtual/stb-hal-libs"
+RPROVIDES_${PN} = "virtual/stb-hal-libs"
 # kernel modules are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -12,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 Pn = "r1"
 
-PROVIDES += "virtual/stb-hal-libs"
+
 
 KV = "2.6.34.13"
 KV_FULL = "${KV}-nevis"
