@@ -5,7 +5,7 @@ DEPENDS += "u-boot-mkimage-native"
 
 DESCRIPTION = "Linux kernel for the Coolstream HD1 boxes"
 COMPATIBLE_MACHINE = "coolstream-hd1"
-
+PROVIDES = "virtual/kernel"
 PR = "r1"
 
 SRC_URI = "http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.34/linux-2.6.34.13.tar.xz \
