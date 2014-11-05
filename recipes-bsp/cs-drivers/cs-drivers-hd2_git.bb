@@ -17,7 +17,7 @@ Pn = "r1"
 
 KV = "2.6.34.14"
 SRCREV = "${AUTOREV}"
-PV = "0.0+git${SRCPV}"
+PV = "2.15"
 
 SRC_URI = " \
 	git://c00lstreamtech.de/cst-public-drivers.git \
