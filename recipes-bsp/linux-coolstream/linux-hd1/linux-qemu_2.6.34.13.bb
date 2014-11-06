@@ -3,7 +3,7 @@ require linux.inc
 DEPENDS += "xz-native"
 
 DESCRIPTION = "Linux kernel for qemu-booting the Coolstream HD1 image"
-COMPATIBLE_MACHINE = "coolstream"
+COMPATIBLE_MACHINE = "coolstream-hd1"
 
 PR = "r0"
 
