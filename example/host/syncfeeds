@@ -6,6 +6,9 @@
 # Adjust HOST (coolstream IP adress) and LCD (your ipk deploy directory) variables to your needs 
 # and call ´syncfeeds´ to sync content of your ipk deploy directory with your coolstream stb.
 # Don´t forget to ´bitbake package-index´ first.
+#
+# To connect to nevis boxes a root password has to be set. Connect to your nevis stb via telnet and 
+# add a password with ´passwd root´. Put your chosen password under PASS in this script.
 
 HOST="192.168.x.x"
 USER="root"
