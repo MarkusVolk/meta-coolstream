@@ -9,6 +9,10 @@
 #
 # To connect to nevis boxes a root password has to be set. Connect to your nevis stb via telnet and 
 # add a password with ´passwd root´. Put your chosen password under PASS in this script.
+#
+# After a successful sync, use telnet ´opkg update´ + ´opkg upgrade´ on your coolstream device 
+# to upgrade packages. For a list of possible flags type ´opkg --help´. Of course you can also use the
+# package management within Neutrino.
 
 HOST="192.168.x.x"
 USER="root"
