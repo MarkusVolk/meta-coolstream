@@ -7,6 +7,7 @@ PROVIDES = "hd2-kernel-binary"
 
 PR = "r2"
 SRCREV = "${AUTOREV}"
+PV = "2.15+${SRCPV}"
 SRC_URI = " \
 	git://c00lstreamtech.de/cst-public-drivers.git \
 	file://COPYING.GPL \	
