@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install lftp on your host system, copy this file to /usr/bin on your host (chmod755) 
-# and create /media/sda1/.ipkg directory on your coolstream stb.
+# and create /media/sda1/.ipk directory on your coolstream stb.
 #
 # Adjust HOST (coolstream IP adress) and LCD (your ipk deploy directory) variables to your needs 
 # and call ´syncfeeds´ to sync content of your ipk deploy directory with your coolstream stb.
