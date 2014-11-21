@@ -68,6 +68,8 @@ start)
 	im cs_frontend_prop
 	im dvb-core
 	im cs_frontend
+	im cifs
+	im fuse
 	# <name ><type> <mode> <uid> <gid> <major> <minor>
 	makedevs /dev <<-EOF
 	# is this needed at all?
