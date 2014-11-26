@@ -1,8 +1,5 @@
 # Coolstream HD2 BSP default versions
 
-# "upstream" also uses 4.8
-GCCVERSION ?= "4.8%"
-
 # set udev to 164 because the cst kernel lacks devtmpfs support 
 PREFERRED_VERSION_udev = "164"
 
