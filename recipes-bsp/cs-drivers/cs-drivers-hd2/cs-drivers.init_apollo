@@ -51,6 +51,7 @@ start)
 		s/^\(\S\+\)-/\1_/g;
 		s/^\(\S\+\)-/\1_/g;
 		p }" /etc/modprobe.conf 2>/dev/null)
+
 	im lnxplatnativeDrv.ko
 	im lnxKKALDrv.ko
 	im lnxnotifyqDrv.ko
@@ -64,25 +65,23 @@ start)
 	im lnxtmvssDrv.ko
 	im lnxpvrDrv.ko
 	im lnxdvbciDrv.ko
-#	im lnxIPfeDrv.ko
+	im lnxIPfeDrv.ko
 	im framebuffer.ko cnxtfb_standalone=1 cnxtfb_hdwidth=1280 cnxtfb_hdheight=720 cnxtfb_autoscale_sd=2
-
-#optional 3d driver
 #	im pvrsrvkm.ko
-
-#	im pvrnxpdc.ko
-#	im pvrvssbc.ko
+	im pvrnxpdc.ko
+	im pvrvssbc.ko
 	im control.ko
 	im frontpanel.ko
-
-	im dvb-core.ko
- 	im typhoon.ko
+	im dvbcore.ko
+	im typhoon
 	im a8296.ko
 	im av201x.ko
 	im sharp780x.ko
+	im dvb_api_prop.ko
+	im avl6761.ko
+	im mxl603.ko
 	im avl6211.ko
 	im dvb_api.ko
-	im dvb_api_prop.ko
-	im cifs.ko
+	im cifs.ko	
 	;;
 esac
