@@ -82,6 +82,9 @@ start)
 	im mxl603.ko
 	im avl6211.ko
 	im dvb_api.ko
-	im cifs.ko	
+	im cifs.ko
+	im rt5370sta
+	im 8192eu.ko
+	im 8192cu.ko	
 	;;
 esac
