@@ -2,7 +2,6 @@
 RDEPENDS_vim ?= "libiconv gettext-runtime"
 RDEPENDS_fuse ?= "libiconv"
 RDEPENDS_djmount ?= "fuse libiconv"
-RDEPENDS_${PN}_sudo ?= "libiconv gettext-runtime"
 RDEPENDS_groff ?= "libiconv sed"
 RDEPENDS_winbind ?= "popt libpam"
 RDEPENDS_libwinbind ?= "libpam"
