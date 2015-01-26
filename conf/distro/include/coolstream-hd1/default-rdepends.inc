@@ -1,0 +1,6 @@
+RDEPENDS_groff ?= "sed"
+RDEPENDS_winbind ?= "popt libpam"
+RDEPENDS_libwinbind ?= "libpam"
+RDEPENDS_swat ?= "popt libpam"
+RDEPENDS_samba ?= "popt libpam"
+RDEPENDS_busybox ?= "libpam"
