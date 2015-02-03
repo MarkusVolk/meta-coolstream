@@ -2,7 +2,7 @@
 # Default preferred versions
 #
 # currently usable kernel version, use the same for headers
-LINUXLIBCVERSION ?= "2.6.34%"
+LINUXLIBCVERSION ?= "3.10.27%"
 PREFERRED_VERSION_nativesdk-linux-libc-headers = "3.16"
 PREFERRED_VERSION_ffmpeg = "2.3.3%"
 PREFERRED_VERSION_luaposix = "31"

@@ -15,7 +15,7 @@ Pn = "r1"
 
 
 
-KV = "2.6.34.14"
+KV = "3.10.27"
 SRCREV = "${AUTOREV}"
 PV = "2.15+${SRCPV}"
 
@@ -45,13 +45,13 @@ do_compile () {
 
 do_install () {
 	install -d ${D}/lib/modules/${KV}
-	cp -r ${S}/${BOXTYPE}/drivers/${KV}/extra ${D}/lib/modules/${KV}
-	cp -r ${S}/${BOXTYPE}/drivers/${KV}/kernel ${D}/lib/modules/${KV}
-	cp ${S}/${BOXTYPE}/drivers/${KV}/modules.* ${D}/lib/modules/${KV}
+	cp -r ${S}/${BOXTYPE}-3.x/drivers/${KV}/extra ${D}/lib/modules/${KV}
+	cp -r ${S}/${BOXTYPE}-3.x/drivers/${KV}/kernel ${D}/lib/modules/${KV}
+	cp ${S}/${BOXTYPE}-3.x/drivers/${KV}/modules.* ${D}/lib/modules/${KV}
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
-	cp -r ${S}/${BOXTYPE}/libs/* ${D}/lib/
-	cp -r ${S}/${BOXTYPE}/firmware/* ${D}/lib/firmware
+	cp -r ${S}/${BOXTYPE}-3.x/libs/* ${D}/lib/
+	cp -r ${S}/${BOXTYPE}-3.x/firmware/* ${D}/lib/firmware
 	# init script
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/cs-drivers.init_${BOXTYPE} ${D}${sysconfdir}/init.d/cs-drivers

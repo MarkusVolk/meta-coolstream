@@ -46,6 +46,7 @@ start)
 	create_node     "ipfe"
 	create_node     "pvrsrvkm"
 	create_node     "vss_bc"
+	create_node_dir	"input"
 
 	ln -sf /dev/cs_display /dev/display
 	ln -sf /dev/cs_ir /dev/input/nevis_ir

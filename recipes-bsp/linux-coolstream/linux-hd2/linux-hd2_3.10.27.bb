@@ -17,7 +17,7 @@ S = "${WORKDIR}"
 
 do_install_append() {
 	if test -e ${DEPLOY_DIR_IMAGE}; then
-	cp  ${S}/git/${BOXTYPE}/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}
+	cp  ${S}/git/${BOXTYPE}-3.x/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}
 	else
 	mkdir -p ${DEPLOY_DIR_IMAGE} && cp ${S}/git/${BOXTYPE}/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}
 	fi
