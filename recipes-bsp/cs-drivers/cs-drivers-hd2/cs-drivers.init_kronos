@@ -67,7 +67,7 @@ start)
 	im framebuffer.ko cnxtfb_standalone=1 cnxtfb_hdwidth=1280 cnxtfb_hdheight=720 cnxtfb_autoscale_sd=2
 	im control.ko
 	im frontpanel.ko
-	im dvbcore.ko
+	im dvb-core.ko
 	im blazer.ko
 	im tavor.ko
 	im a8296.ko
@@ -80,6 +80,5 @@ start)
 	im dvb_api.ko
 	im cifs.ko
 	im fuse.ko
-	im kernel/drivers/media/dvb-core/dvb-core.ko
 	;;
 esac
