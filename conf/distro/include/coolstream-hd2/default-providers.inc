@@ -16,6 +16,7 @@ PREFERRED_PROVIDER_virtual/libx11 ?= "libx11"
 PREFERRED_PROVIDER_xf86-video-intel ?= "xf86-video-intel"
 PREFERRED_PROVIDER_virtual/kernel = "linux-hd2"
 PREFERRED_PROVIDER_virtual/stb-hal-libs = "cs-drivers-hd2"
+PREFERRED_PROVIDER_virtual/libiconv = "libiconv"
 #
 # Default virtual runtime providers
 #

@@ -15,7 +15,7 @@ Pn = "r1"
 
 
 
-KV = "3.10.27"
+KV = "3.10.67"
 SRCREV = "${AUTOREV}"
 PV = "2.15+${SRCPV}"
 
