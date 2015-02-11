@@ -87,7 +87,7 @@ start)
 	cs_control_scart	c 644 0 0 250	0
 	cs_control_pwm		c 644 0 0 251	0
 	iolib			c 644 0 0 253	0
-
+	fb			d 755 0 0
 	input			d 755 0 0
 	input/nevis_ir		c 644 0 0 240	0
 
