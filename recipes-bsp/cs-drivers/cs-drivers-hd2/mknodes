@@ -47,9 +47,11 @@ start)
 	create_node     "pvrsrvkm"
 	create_node     "vss_bc"
 	create_node_dir	"input"
+	create_node_dir	"fb"
 
 	ln -sf /dev/cs_display /dev/display
 	ln -sf /dev/cs_ir /dev/input/nevis_ir
 	ln -sf /dev/cs_ir /dev/input/event0
+	ln -sf /dev/fb0 /dev/fb/0
 	;;
 esac
