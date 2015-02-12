@@ -5,21 +5,23 @@ LICENSE = "proprietary"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/license;md5=17a6b3d5436a55985b200c725761907a"
 
 COMPATIBLE_MACHINE = "coolstream-hd1"
+DEPENDS = "libbluray"
 PROVIDES = "virtual/stb-hal-libs"
 RPROVIDES_${PN} = "virtual/stb-hal-libs"
 # kernel modules are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+GITPKGV_SUBDIR = "nevis"
+
 # inherit module
+inherit gitpkgv
 
 Pn = "r1"
-
-
 
 KV = "2.6.34.13"
 KV_FULL = "${KV}-nevis"
 SRCREV = "${AUTOREV}"
-PV = "2.15+${SRCPV}"
+PV = "${GITPKGVTAG}"
 
 SRC_URI = " \
 	git://c00lstreamtech.de/cst-public-drivers.git \
