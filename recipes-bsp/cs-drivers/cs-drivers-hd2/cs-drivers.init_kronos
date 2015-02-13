@@ -56,6 +56,7 @@ start)
 	im lnxKKALDrv.ko
 	im lnxnotifyqDrv.ko
 	im lnxplatDrv.ko
+	im lnxscsDRV.ko
 	im lnxcssDrv.ko
 	im lnxtmasDrv.ko
 	im lnxtmvssDrvGPL.ko
