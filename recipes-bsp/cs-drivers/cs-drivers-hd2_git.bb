@@ -12,17 +12,11 @@ RPROVIDES_${PN} = "virtual/stb-hal-libs"
 # kernel modules are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-# inherit module
-GITPKGV_SUBDIR = "${@'kronos-3.x' if BOXTYPE != 'apollo' else 'apollo-3.x'}"
-
-# inherit module
-inherit gitpkgv
-
 Pn = "r1"
 
 KV = "3.10.67"
 SRCREV = "${AUTOREV}"
-PV = "${GITPKGVTAG}"
+PV = "${SRCPV}"
 
 SRC_URI = " \
 	git://c00lstreamtech.de/cst-public-drivers.git \

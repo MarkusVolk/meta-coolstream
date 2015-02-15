@@ -11,17 +11,12 @@ RPROVIDES_${PN} = "virtual/stb-hal-libs"
 # kernel modules are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-GITPKGV_SUBDIR = "nevis"
-
-# inherit module
-inherit gitpkgv
-
 Pn = "r1"
 
 KV = "2.6.34.13"
 KV_FULL = "${KV}-nevis"
 SRCREV = "${AUTOREV}"
-PV = "${GITPKGVTAG}"
+PV = "${SRCPV}"
 
 SRC_URI = " \
 	git://c00lstreamtech.de/cst-public-drivers.git \
