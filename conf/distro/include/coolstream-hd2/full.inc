@@ -2,6 +2,6 @@
 # include packagegroups
 #
 
-IMAGE_INSTALL_append += "packagegroup-custom-recommended"
+IMAGE_INSTALL_append += "packagegroup-custom-full"
 
 
