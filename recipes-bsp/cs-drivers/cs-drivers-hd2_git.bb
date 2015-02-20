@@ -14,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 Pn = "r1"
 
-KV = "3.10.67"
+KV = "3.10.69"
 SRCREV = "${AUTOREV}"
 PV = "${SRCPV}"
 
