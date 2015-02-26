@@ -49,13 +49,20 @@ do_install () {
 	cp ${S}/${BOXTYPE}-3.x/drivers/${KV}/modules.* ${D}/lib/modules/${KV}
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
-	cp -r ${S}/${BOXTYPE}-3.x/libs/* ${D}/lib/
 	cp -r ${S}/${BOXTYPE}-3.x/firmware/* ${D}/lib/firmware
 	# init script
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/cs-drivers.init_${BOXTYPE} ${D}${sysconfdir}/init.d/cs-drivers
 	install -m 0755 ${WORKDIR}/mknodes ${D}${sysconfdir}/init.d/mknodes
 	update-rc.d -r ${D} mknodes start 60 S .
+}
+
+do_install_append_libc-uclibc () {
+	cp -r ${S}/${BOXTYPE}-3.x/libs/* ${D}/lib/
+}
+
+do_install_append_libc-glibc () {
+	cp -r ${S}/${BOXTYPE}-3.x/libs-eglibc/* ${D}/lib/
 }
 
 # initscript
