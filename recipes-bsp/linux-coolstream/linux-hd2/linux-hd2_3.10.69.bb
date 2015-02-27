@@ -16,9 +16,22 @@ SRC_URI = " \
 S = "${WORKDIR}"
 
 do_install_append() {
+	install -d ${D}${localstatedir}/update
 	if test -e ${DEPLOY_DIR_IMAGE}; then
-	cp  ${S}/git/${BOXTYPE}-3.x/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}
+	cp ${S}/git/${BOXTYPE}-3.x/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}
 	else
 	mkdir -p ${DEPLOY_DIR_IMAGE} && cp ${S}/git/${BOXTYPE}-3.x/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}
+	fi
+	if [ ${INCLUDE_KERNEL} == "yes" ];then
+		cp ${S}/git/${BOXTYPE}-3.x/vmlinux.ub.gz ${D}${localstatedir}/update/
+	fi
+	if [ ${INCLUDE_ULDR} == "yes" ];then
+		cp ${S}/git/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
+	fi
+	if [ ${INCLUDE_ULDR} == "oc" ];then
+		cp ${S}/git/${BOXTYPE}-3.x/uldr.bin.600mhz ${D}${localstatedir}/update/uldr.bin
+	fi
+ 	if [ ${INCLUDE_U_BOOT} == "yes" ];then
+		cp ${S}/git/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
 	fi
 }
