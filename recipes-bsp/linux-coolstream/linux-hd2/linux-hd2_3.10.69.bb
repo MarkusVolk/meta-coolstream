@@ -2,7 +2,7 @@ require linux.inc
 
 DESCRIPTION = "Linux kernel for the Coolstream HD2 boxes"
 COMPATIBLE_MACHINE = "coolstream-hd2"
-
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 PROVIDES = "hd2-kernel-binary"
 
 PR = "r2"
