@@ -12,5 +12,6 @@ ASNEEDED_pn-puzzles = ""
 ASNEEDED_pn-dialer = ""
 ASNEEDED_pn-pulseaudio = ""
 ASNEEDED_pn-rpm = ""
+ASNEEDED_pn-oscam = "-lrt"
 
 TARGET_LDFLAGS += "${ASNEEDED}"
