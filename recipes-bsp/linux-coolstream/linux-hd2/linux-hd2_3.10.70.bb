@@ -10,6 +10,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PR = "r1"
 SRCREV = "${AUTOREV}"
 PV = "${KV}+${SRCPV}"
+
 SRC_URI = " \
 	git://git.slknet.de/git/cst-public-linux-kernel.git;branch=cst_3.10;protocol=git \
 	file://COPYING.GPL \
@@ -32,4 +33,9 @@ do_install_prepend() {
 	# hack: we replace the zImage with the U-Boot image...
 	mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
 	mv zImage arch/arm/boot/zImage
+	if test -e ${DEPLOY_DIR_IMAGE}; then
+		cp  arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}
+	else
+		mkdir -p ${DEPLOY_DIR_IMAGE} && cp arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}
+	fi
 }
