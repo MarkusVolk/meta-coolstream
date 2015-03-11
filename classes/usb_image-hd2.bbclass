@@ -43,7 +43,8 @@ IMAGE_DEPENDS_hd2-usbimg = " \
 	parted-native \
 	mtools-native \
 	dosfstools-native \
-	hd2-kernel-binary \
+	virtual/kernel \
+	hd2-kernel \
 "
 
 # USB image name
@@ -128,7 +129,7 @@ IMAGE_CMD_hd2-usbimg () {
 
 	mkdir -p ${DEPLOY_DIR_IMAGE}/flashimage
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2.sum ${DEPLOY_DIR_IMAGE}/flashimage/rootfs.arm.jffs2.nand
-	cp ${DEPLOY_DIR_IMAGE}/vmlinux.ub.gz ${DEPLOY_DIR_IMAGE}/flashimage/
+	cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/flashimage/vmlinux.ub.gz
 }
 
 # ROOTFS_POSTPROCESS_COMMAND += ""

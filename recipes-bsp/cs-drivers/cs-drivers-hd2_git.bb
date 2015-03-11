@@ -14,7 +14,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 Pn = "r1"
 
-KV = "3.10.69"
 SRCREV = "${AUTOREV}"
 PV = "${SRCPV}"
 
@@ -45,7 +44,6 @@ do_compile () {
 do_install () {
 	install -d ${D}/lib/modules/${KV}
 	cp -r ${S}/${BOXTYPE}-3.x/drivers/${KV}/extra ${D}/lib/modules/${KV}
-	cp -r ${S}/${BOXTYPE}-3.x/drivers/${KV}/kernel ${D}/lib/modules/${KV}
 	cp ${S}/${BOXTYPE}-3.x/drivers/${KV}/modules.* ${D}/lib/modules/${KV}
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
@@ -54,7 +52,22 @@ do_install () {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/cs-drivers.init_${BOXTYPE} ${D}${sysconfdir}/init.d/cs-drivers
 	install -m 0755 ${WORKDIR}/mknodes ${D}${sysconfdir}/init.d/mknodes
+	rm ${D}/lib/modules/${KV}/modules.builtin
+	rm ${D}/lib/modules/${KV}/modules.order
 	update-rc.d -r ${D} mknodes start 60 S .
+}
+
+do_install_append() {
+	install -d ${D}${localstatedir}/update
+	if [ ${INCLUDE_ULDR} == "yes" ];then
+		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
+	fi
+	if [ ${INCLUDE_ULDR} == "oc" ];then
+		cp ${S}/${BOXTYPE}-3.x/uldr.bin.600mhz ${D}${localstatedir}/update/uldr.bin
+	fi
+ 	if [ ${INCLUDE_U_BOOT} == "yes" ];then
+		cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
+	fi
 }
 
 do_install_append_libc-uclibc () {
@@ -72,6 +85,7 @@ INITSCRIPT_NAME = "cs-drivers"
 INITSCRIPT_PARAMS = "start 50 S ."
 
 FILES_${PN} = " \
+	${localstatedir}/update/* \
 	/lib/* \
 	/lib/firmware/* \
 	/lib/modules/* \

@@ -2,7 +2,7 @@
 # Default preferred versions
 #
 # currently usable kernel version, use the same for headers
-LINUXLIBCVERSION ?= "3.10.69%"
+LINUXLIBCVERSION ?= "3.10.70%"
 PREFERRED_VERSION_nativesdk-linux-libc-headers = "3.16"
 PREFERRED_VERSION_ffmpeg = "2.3.3%"
 PREFERRED_VERSION_luaposix = "31"
@@ -13,4 +13,5 @@ PREFERRED_VERSION_python-native ?= "2.7.3"
 
 # Force the older version of liberation-fonts until we fix the fontforge issue
 PREFERRED_VERSION_liberation-fonts ?= "1.04"
-
+# Preferred Kernel Version
+KV = "3.10.70"

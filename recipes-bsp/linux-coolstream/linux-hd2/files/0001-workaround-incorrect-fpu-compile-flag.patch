@@ -1,0 +1,62 @@
+From abafdfe76d1f65add0929ea51c055235a4cf4a10 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@gmx.net>
+Date: Wed, 11 Mar 2015 11:18:05 +0100
+Subject: [PATCH 356038/356038] workaround incorrect fpu compile flag
+
+Signed-off-by: Markus Volk <f_l_k@gmx.net>
+---
+ arch/arm/vfp/vfphw.S | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm/vfp/vfphw.S b/arch/arm/vfp/vfphw.S
+index 89b6f02..9f9971d 100644
+--- a/arch/arm/vfp/vfphw.S
++++ b/arch/arm/vfp/vfphw.S
+@@ -281,19 +281,19 @@ ENDPROC(vfp_put_float)
+ 
+ ENTRY(vfp_get_double)
+ 	tbl_branch r0, r3, #3
+-	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
++/*	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+ 1:	fmrrd	r0, r1, d\dr
+ 	ret	lr
+ 	.org	1b + 8
+ 	.endr
+-#ifdef CONFIG_VFPv3
++#ifdef CONFIG_VFPv3*/
+ 	@ d16 - d31 registers
+ 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+ 1:	mrrc	p11, 3, r0, r1, c\dr	@ fmrrd	r0, r1, d\dr
+ 	ret	lr
+ 	.org	1b + 8
+ 	.endr
+-#endif
++//#endif
+ 
+ 	@ virtual register 16 (or 32 if VFPv3) for compare with zero
+ 	mov	r0, #0
+@@ -302,18 +302,18 @@ ENTRY(vfp_get_double)
+ ENDPROC(vfp_get_double)
+ 
+ ENTRY(vfp_put_double)
+-	tbl_branch r2, r3, #3
++/*	tbl_branch r2, r3, #3
+ 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+ 1:	fmdrr	d\dr, r0, r1
+ 	ret	lr
+ 	.org	1b + 8
+ 	.endr
+-#ifdef CONFIG_VFPv3
++#ifdef CONFIG_VFPv3*/
+ 	@ d16 - d31 registers
+ 	.irp	dr,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+ 1:	mcrr	p11, 3, r0, r1, c\dr	@ fmdrr	r0, r1, d\dr
+ 	ret	lr
+ 	.org	1b + 8
+ 	.endr
+-#endif
++//#endif
+ ENDPROC(vfp_put_double)
+-- 
+2.1.3
+
