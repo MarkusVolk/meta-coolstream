@@ -35,7 +35,9 @@ do_install_prepend() {
 	mv zImage arch/arm/boot/zImage
 	if test -e ${DEPLOY_DIR_IMAGE}; then
 		cp  arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}
+		ln -s ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/vmlinux.ub.gz
 	else
-		mkdir -p ${DEPLOY_DIR_IMAGE} && cp arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}
+		mkdir -p ${DEPLOY_DIR_IMAGE} && cp arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}/vmlinux.ub.gz
+		ln -s ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/vmlinux.ub.gz
 	fi
 }

@@ -15,7 +15,6 @@ do_install() {
 	if [ ${INCLUDE_KERNEL} == "yes" ];then
 		cp ${DEPLOY_DIR_IMAGE}/zImage ${D}${localstatedir}/update/vmlinux.ub.gz
 	fi
-	cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/vmlinux.ub.gz
 }
 
 FILES_${PN} = "${localstatedir}/update/vmlinux.ub.gz"
