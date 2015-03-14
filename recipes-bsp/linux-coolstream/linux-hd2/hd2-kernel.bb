@@ -12,9 +12,10 @@ PR = "r1"
 
 do_install() {
 	install -d ${D}${localstatedir}/update/
+	touch ${D}${localstatedir}/update/put_binfiles_here
 	if [ ${INCLUDE_KERNEL} == "yes" ];then
 		cp ${DEPLOY_DIR_IMAGE}/zImage ${D}${localstatedir}/update/vmlinux.ub.gz
 	fi
 }
 
-FILES_${PN} = "${localstatedir}/update/vmlinux.ub.gz"
+FILES_${PN} = "${localstatedir}/update/*"
