@@ -59,6 +59,7 @@ do_install () {
 
 do_install_append() {
 	install -d ${D}${localstatedir}/update
+	touch ${D}${localstatedir}/update/put_binfiles_here
 	if [ ${INCLUDE_ULDR} == "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
 	fi
