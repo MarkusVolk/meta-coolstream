@@ -2,8 +2,10 @@ DEFAULTTUNE ?= "cortexa9hf"
 
 require conf/machine/include/arm/arch-armv7a.inc
 
+
 TUNEVALID[cortexa9] = "Enable Cortex-A9 specific processor optimizations"
 TUNE_CCARGS .= "${@bb.utils.contains("TUNE_FEATURES", "cortexa9", " -mtune=cortex-a9", "", d)}"
+TUNE_CCARGS += "${@bb.utils.contains("TUNE_FEATURES", "vfp", "-mfpu=vfpv3-d16-fp16", "", d)}"
 
 # Little Endian base configs
 AVAILTUNES += "cortexa9"
