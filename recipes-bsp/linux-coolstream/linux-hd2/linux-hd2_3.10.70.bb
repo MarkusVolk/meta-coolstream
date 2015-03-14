@@ -16,7 +16,7 @@ SRC_URI = " \
 	file://COPYING.GPL \
 	file://${BOXTYPE}_defconfig \
 	file://${BOXTYPE}.dtb \
-	file://0001-workaround-incorrect-fpu-compile-flag.patch \
+	file://0001-arch-arm-vfp-Makefile-adjust-kbuild_aflags.patch \
 "
 
 S = "${WORKDIR}/git"
