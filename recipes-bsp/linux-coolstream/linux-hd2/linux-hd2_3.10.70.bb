@@ -17,6 +17,7 @@ SRC_URI = " \
 	file://${BOXTYPE}_defconfig \
 	file://${BOXTYPE}.dtb \
 	file://0001-arch-arm-vfp-Makefile-adjust-kbuild_aflags.patch \
+	file://0001-change-boot-splash.patch;apply=yes \
 "
 
 S = "${WORKDIR}/git"
