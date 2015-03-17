@@ -40,12 +40,12 @@ CMDLINE_coolstream = ""
 
 UDEV_GE_141 ?= "1"
 
-do_configure_prepend() {
+do_kernel_configure_prepend() {
 	# install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
 	cp '${WORKDIR}/defconfig' '${S}/.config'
 }
 
-do_install_prepend() {
+do_kernel_install_prepend() {
 	uboot-mkimage -A arm -O linux -T kernel -a 0x048000 -e 0x048000 -C none \
 		-n "CS HD1 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage zImage.img
 	# hack: we replace the zImage with the U-Boot image...
@@ -53,11 +53,12 @@ do_install_prepend() {
 	mv zImage.img arch/arm/boot/zImage
 }
 
-do_install_append() {
+do_kernel_install_append() {
 	# self-built dvb-core does not work, need to use the binary-only illegal one :-(
 	rm    ${D}/lib/modules/${KV}/kernel/drivers/media/dvb/dvb-core/dvb-core.ko
 	rmdir ${D}/lib/modules/${KV}/kernel/drivers/media/dvb/dvb-core
 	rmdir ${D}/lib/modules/${KV}/kernel/drivers/media/dvb
 	# install -d ${D}/lib/firmware
+	rm -f ${KERNEL_IMAGEDEST}/zImage-${KERNEL_VERSION}
 }
 

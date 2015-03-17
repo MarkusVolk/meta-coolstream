@@ -32,19 +32,16 @@ kernel_do_configure_prepend() {
 kernel_do_install_prepend() {
 	install -d ${D}${localstatedir}/update
 	cat arch/arm/boot/zImage ${WORKDIR}/${BOXTYPE}.dtb > arch/arm/boot/zImage_DTB
-	uboot-mkimage -A arm -O linux -T kernel -a 0x008000 -e 0x008000 -C none \
-		-n "CS HD2 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage_DTB zImage
-	# hack: we replace the zImage with the U-Boot image...
 	mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
-	mv zImage arch/arm/boot/zImage
+	uboot-mkimage -A arm -O linux -T kernel -a 0x008000 -e 0x008000 -C none \
+		-n "CS HD2 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage_DTB arch/arm/boot/zImage
+	if [ ${INCLUDE_KERNEL} == "yes" ];then
+	install arch/arm/boot/zImage ${D}${localstatedir}/update/vmlinux.ub.gz
+	fi
 }
 
 kernel_do_install_append() {
-	if [ INCLUDE_KERNEL == "yes" ];then 
-	mv ${D}${localstatedir}/update/zImage-${KERNEL_VERSION} ${D}${localstatedir}/update/vmlinux.ub.gz
-	else
-	rm ${D}${localstatedir}/update/zImage-${KERNEL_VERSION}
-	fi
+	rm -f ${D}${localstatedir}/update/zImage-${KERNEL_VERSION}
 }
 	
 FILES_kernel-image = "/var/update"
