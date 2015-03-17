@@ -60,7 +60,7 @@ do_install () {
 }
 
 do_install_append() {
-	if [ ${INCLUDE_ULDR} != "" ] || [ ${INCLUDE_U_BOOT} != "" ];then
+	if [ ${INCLUDE_ULDR} == "yes" ] || [ ${INCLUDE_U_BOOT} == "yes" ] || [ ${INCLUDE_ULDR} == "oc" ];then
 	install -d ${D}${localstatedir}/update
 	fi
 	if [ ${INCLUDE_ULDR} == "yes" ];then
