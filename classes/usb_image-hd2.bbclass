@@ -43,7 +43,7 @@ IMAGE_DEPENDS_hd2-usbimg = " \
 	parted-native \
 	mtools-native \
 	dosfstools-native \
-	hd2-kernel \
+	linux-hd2 \
 "
 
 # USB image name

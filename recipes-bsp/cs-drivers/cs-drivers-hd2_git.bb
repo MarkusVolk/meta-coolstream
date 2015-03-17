@@ -33,6 +33,8 @@ SOLIBS = "${SOLIBSDEV}"
 INSANE_SKIP_${PN} = "ldflags already-stripped"
 INSANE_SKIP_${PN}-dev = "ldflags"
 
+ALLOW_EMPTY_cs-drivers-hd2 = "1"
+
 # no idea why do_configure does not find the license file otherwise...
 do_configure_prepend () {
 	cp '${WORKDIR}/license' '${S}'
@@ -58,8 +60,9 @@ do_install () {
 }
 
 do_install_append() {
+	if [ ${INCLUDE_ULDR} != "" ] || [ ${INCLUDE_U_BOOT} != "" ];then
 	install -d ${D}${localstatedir}/update
-	touch ${D}${localstatedir}/update/put_binfiles_here
+	fi
 	if [ ${INCLUDE_ULDR} == "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
 	fi
@@ -86,7 +89,7 @@ INITSCRIPT_NAME = "cs-drivers"
 INITSCRIPT_PARAMS = "start 50 S ."
 
 FILES_${PN} = " \
-	${localstatedir}/update/* \
+	${localstatedir}/update \
 	/lib/* \
 	/lib/firmware/* \
 	/lib/modules/* \

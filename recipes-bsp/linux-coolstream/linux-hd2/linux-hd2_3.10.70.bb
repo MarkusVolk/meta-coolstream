@@ -16,18 +16,21 @@ SRC_URI = " \
 	file://COPYING.GPL \
 	file://${BOXTYPE}_defconfig \
 	file://${BOXTYPE}.dtb \
-	file://0001-arch-arm-vfp-Makefile-adjust-kbuild_aflags.patch \
+	file://0001-arch-arm-vfp-Makefile-adjust-kbuild_aflags.patch;apply=yes \
 	file://0001-change-boot-splash.patch;apply=yes \
 "
 
 S = "${WORKDIR}/git"
 
-do_configure_prepend() {
+KERNEL_IMAGEDEST = "${localstatedir}/update"
+
+kernel_do_configure_prepend() {
 	# install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
 	cp '${WORKDIR}/${BOXTYPE}_defconfig' '${S}/.config'
 }
 
-do_install_prepend() {
+kernel_do_install_prepend() {
+	install -d ${D}${localstatedir}/update
 	cat arch/arm/boot/zImage ${WORKDIR}/${BOXTYPE}.dtb > arch/arm/boot/zImage_DTB
 	uboot-mkimage -A arm -O linux -T kernel -a 0x008000 -e 0x008000 -C none \
 		-n "CS HD2 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage_DTB zImage
@@ -35,3 +38,14 @@ do_install_prepend() {
 	mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
 	mv zImage arch/arm/boot/zImage
 }
+
+kernel_do_install_append() {
+	if [ INCLUDE_KERNEL == "yes" ];then 
+	mv ${D}${localstatedir}/update/zImage-${KERNEL_VERSION} ${D}${localstatedir}/update/vmlinux.ub.gz
+	else
+	rm ${D}${localstatedir}/update/zImage-${KERNEL_VERSION}
+	fi
+}
+	
+FILES_kernel-image = "/var/update"
+
