@@ -27,18 +27,32 @@ im()
 	fi
 }
 
-# simulate busybox makedevs
-makedevs()
-{
-	DIR=$1
-	while read name type mode uid gid major minor; do
-		test -z "$name" -o "x$name" = "x#" && continue
-		case x$type in
-		x) ;;
-		xd) mkdir -p -m $mode $DIR/$name ;;
-		*) mknod -m $mode $DIR/$name $type $major $minor ;;
-		esac
-	done
+create_node() {
+	device=$1
+
+	rm -f /dev/${device}
+	major=`awk "\\$2==\"$device\" {print \\$1}" /proc/devices`
+
+	if [ ${major} ]; then
+		echo "  creating device node for $1"
+		#echo "    DEBUG: mknod /dev/${device} c $major 0"
+		mknod /dev/${device} c $major 0
+	fi
+}
+
+create_node_dir() {
+	device=$1
+
+	rm -rf /dev/${device}
+	mkdir -p /dev/${device}
+
+	major=`awk "\\$2==\"$device\" {print \\$1}" /proc/devices`
+
+	if [ ${major} ]; then
+		echo "  creating device node for directory $1"
+		#echo "    DEBUG: mknod /dev/${device}/0 c $major 0"
+		mknod /dev/${device}/0 c $major 0
+	fi
 }
 
 case $1 in
@@ -66,6 +80,11 @@ start)
 	im framebuffer.ko cnxtfb_standalone=1 cnxtfb_hdwidth=1280 cnxtfb_hdheight=720 cnxtfb_autoscale_sd=2
 	im control.ko
 	im frontpanel.ko
+
+	create_node     "cs_display"
+	ln -sf /dev/cs_display /dev/display
+	dt -t"Loading drivers ..."
+
 	im dvb-core.ko
 	im blazer.ko
 	im tavor.ko
@@ -79,5 +98,28 @@ start)
 	im dvb_api.ko
 	im cifs.ko
 	im fuse.ko
+
+	create_node     "KAL"
+	create_node     "notifyq"
+	create_node     "platform"
+	create_node     "content"
+	create_node     "standby"
+	create_node     "video"
+	create_node     "audio"
+	create_node     "pvr"
+	create_node     "ci"
+	create_node     "cs_control"
+	create_node     "cs_ir"
+	create_node     "FrontEnd"
+	create_node     "ipfe"
+	create_node     "pvrsrvkm"
+	create_node     "vss_bc"
+	create_node_dir	"input"
+	create_node_dir	"fb"
+	ln -sf /dev/cs_ir /dev/input/nevis_ir
+	ln -sf /dev/cs_ir /dev/input/event0
+	ln -sf /dev/fb0 /dev/fb/0
+
+	dt -t"Starting system ..."
 	;;
 esac

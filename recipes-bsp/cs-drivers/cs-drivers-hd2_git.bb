@@ -20,7 +20,6 @@ PV = "${SRCPV}"
 SRC_URI = " \
 	git://git.slknet.de/git/cst-public-drivers.git \
 	file://cs-drivers.init_${BOXTYPE} \
-	file://mknodes \
 	file://license \
 "
 
@@ -53,10 +52,8 @@ do_install () {
 	# init script
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/cs-drivers.init_${BOXTYPE} ${D}${sysconfdir}/init.d/cs-drivers
-	install -m 0755 ${WORKDIR}/mknodes ${D}${sysconfdir}/init.d/mknodes
 	rm ${D}/lib/modules/${KV}/modules.builtin
 	rm ${D}/lib/modules/${KV}/modules.order
-	update-rc.d -r ${D} mknodes start 60 S .
 }
 
 do_install_append() {
