@@ -42,8 +42,7 @@ NO32LIBS ??= "1"
 
 # Default to emitting logfiles if a build fails.
 BBINCLUDELOGS ??= "yes"
-SDK_VERSION ??= "coolstream-hd1-0.1"
-DISTRO_VERSION ??= "coolstream-hd1-0.1"
+SDK_VERSION ??= "${DISTRO}-${DISTRO_VERSION}"
 
 # Missing checksums should raise an error
 BB_STRICT_CHECKSUM = "1"
