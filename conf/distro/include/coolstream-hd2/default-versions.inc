@@ -4,9 +4,6 @@
 # currently usable kernel version, use the same for headers
 KV = "3.10.70"
 LINUXLIBCVERSION ?= "${KV}"
-PREFERRED_VERSION_nativesdk-glibc = "2.21"
-PREFERRED_VERSION_nativesdk-glibc-initial = "2.21"
-PREFERRED_VERSION_nativesdk-linux-libc-headers = "3.19"
 PREFERRED_VERSION_ffmpeg = "2.3.3%"
 PREFERRED_VERSION_luaposix = "31"
 # Force the python versions in one place
