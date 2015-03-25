@@ -71,5 +71,5 @@ PREFERRED_VERSION_uclibc-initial           ?= "${UCLIBCVERSION}"
 PREFERRED_VERSION_gzip-native ?= "1.6"
 
 # Setup suitable toolchain flags
-require conf/distro/include/as-needed.inc
+#require conf/distro/include/as-needed.inc
 

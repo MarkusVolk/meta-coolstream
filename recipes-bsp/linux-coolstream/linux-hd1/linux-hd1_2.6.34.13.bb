@@ -61,3 +61,6 @@ kernel_do_install_append() {
 	# install -d ${D}/lib/firmware
 }
 
+SRC_URI[md5sum] = "ec72935604c58d26b044e0cb2a496a3b"
+SRC_URI[sha256sum] = "cb50a9ec2e24fb0d02eb4983e5c7bc61725cdcf212813a79121a0bb12ac0b4ce"
+
