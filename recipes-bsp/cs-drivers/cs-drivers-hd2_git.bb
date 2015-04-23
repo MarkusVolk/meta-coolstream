@@ -61,10 +61,10 @@ do_install_append() {
 	install -d ${D}${localstatedir}/update
 	fi
 	if [ ${INCLUDE_ULDR} == "yes" ];then
-		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
+		cp ${S}/${BOXTYPE}-3.x/uldr.bin.500mhz ${D}${localstatedir}/update/uldr.bin
 	fi
 	if [ ${INCLUDE_ULDR} == "oc" ];then
-		cp ${S}/${BOXTYPE}-3.x/uldr.bin.600mhz ${D}${localstatedir}/update/uldr.bin
+		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
 	fi
  	if [ ${INCLUDE_U_BOOT} == "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
