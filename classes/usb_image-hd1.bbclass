@@ -127,9 +127,10 @@ IMAGE_CMD_hd1-usbimg () {
 	esac
 
 	mkdir -p ${DEPLOY_DIR_IMAGE}/flashimage/coolstream
+	if [ ${IMAGETYP} == "tiny" ]; then
 	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2.sum ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/system.img
 	cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/kernel.img
-
+	fi
 }
 
 # ROOTFS_POSTPROCESS_COMMAND += ""
