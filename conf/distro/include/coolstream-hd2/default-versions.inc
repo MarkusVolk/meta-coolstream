@@ -4,7 +4,7 @@
 # currently usable kernel version, use the same for headers
 KV = "3.10.70"
 LINUXLIBCVERSION ?= "${KV}"
-PREFERRED_VERSION_ffmpeg = "2.3.3%"
+
 PREFERRED_VERSION_luaposix = "31"
 # Force the python versions in one place
 PYTHON_BASEVERSION ?= "2.7"
