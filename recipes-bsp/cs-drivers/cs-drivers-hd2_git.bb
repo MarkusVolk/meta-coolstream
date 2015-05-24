@@ -56,8 +56,8 @@ do_install () {
 	rm ${D}/lib/modules/${KV}/modules.order
 }
 
-do_install_append() {
-	if [ ${INCLUDE_ULDR} == "yes" ] || [ ${INCLUDE_U_BOOT} == "yes" ] || [ ${INCLUDE_ULDR} == "oc" ];then
+do_install_append () {
+	if [ ${INCLUDE_ULDR} == "yes" ] || [ ${INCLUDE_U_BOOT} == "yes" ] || [ ${INCLUDE_ULDR} == "oc" ] || [ ${CLEAN_VAR} == "yes" ] || [ ${CLEAN_ENV} == "yes" ];then
 	install -d ${D}${localstatedir}/update
 	fi
 	if [ ${INCLUDE_ULDR} == "yes" ];then
@@ -68,6 +68,12 @@ do_install_append() {
 	fi
  	if [ ${INCLUDE_U_BOOT} == "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
+	fi
+ 	if [ ${CLEAN_VAR} == "yes" ];then
+		touch ${D}${localstatedir}/update/var.bin 
+	fi
+ 	if [ ${CLEAN_ENV} == "yes" ];then
+		touch ${D}${localstatedir}/update/env.bin 
 	fi
 }
 
