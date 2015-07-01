@@ -35,7 +35,7 @@ kernel_do_install_prepend() {
 	mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
 	uboot-mkimage -A arm -O linux -T kernel -a 0x008000 -e 0x008000 -C none \
 		-n "CS HD2 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage_DTB arch/arm/boot/zImage
-	if [ ${INCLUDE_KERNEL} == "yes" ];then
+	if [ ${INCLUDE_KERNEL} = "yes" ];then
 	install arch/arm/boot/zImage ${D}${localstatedir}/update/vmlinux.ub.gz
 	fi
 }
