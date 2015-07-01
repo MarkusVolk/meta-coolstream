@@ -30,11 +30,12 @@ kernel_do_configure_prepend() {
 }
 
 kernel_do_install_prepend() {
+	#test
 	install -d ${D}${localstatedir}/update
 	if [ -e arch/arm/boot/zImage_DTB ];then
-		mv arch/arm/boot/zImage.orig arch/arm/boot/zImage
+		cp arch/arm/boot/zImage.orig arch/arm/boot/zImage
 	else
-		mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
+		cp arch/arm/boot/zImage arch/arm/boot/zImage.orig
 	fi
 	cat arch/arm/boot/zImage ${WORKDIR}/${BOXTYPE}.dtb > arch/arm/boot/zImage_DTB
 	uboot-mkimage -A arm -O linux -T kernel -a 0x008000 -e 0x008000 -C none \
