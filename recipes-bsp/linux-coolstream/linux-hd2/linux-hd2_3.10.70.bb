@@ -31,8 +31,12 @@ kernel_do_configure_prepend() {
 
 kernel_do_install_prepend() {
 	install -d ${D}${localstatedir}/update
+	if [ -e arch/arm/boot/zImage_DTB ];then
+		mv arch/arm/boot/zImage.orig arch/arm/boot/zImage
+	else
+		mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
+	fi
 	cat arch/arm/boot/zImage ${WORKDIR}/${BOXTYPE}.dtb > arch/arm/boot/zImage_DTB
-	mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
 	uboot-mkimage -A arm -O linux -T kernel -a 0x008000 -e 0x008000 -C none \
 		-n "CS HD2 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage_DTB arch/arm/boot/zImage
 	if [ ${INCLUDE_KERNEL} = "yes" ];then
