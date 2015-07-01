@@ -30,7 +30,6 @@ kernel_do_configure_prepend() {
 }
 
 kernel_do_install_prepend() {
-	#test
 	install -d ${D}${localstatedir}/update
 	if [ -e arch/arm/boot/zImage_DTB ];then
 		cp arch/arm/boot/zImage.orig arch/arm/boot/zImage
