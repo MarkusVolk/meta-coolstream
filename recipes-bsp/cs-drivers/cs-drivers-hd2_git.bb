@@ -57,22 +57,22 @@ do_install () {
 }
 
 do_install_append () {
-	if [ ${INCLUDE_ULDR} == "yes" ] || [ ${INCLUDE_U_BOOT} == "yes" ] || [ ${INCLUDE_ULDR} == "oc" ] || [ ${CLEAN_VAR} == "yes" ] || [ ${CLEAN_ENV} == "yes" ];then
+	if [ ${INCLUDE_ULDR} = "yes" ] || [ ${INCLUDE_U_BOOT} = "yes" ] || [ ${INCLUDE_ULDR} = "oc" ] || [ ${CLEAN_VAR} = "yes" ] || [ ${CLEAN_ENV} = "yes" ];then
 	install -d ${D}${localstatedir}/update
 	fi
-	if [ ${INCLUDE_ULDR} == "yes" ];then
+	if [ ${INCLUDE_ULDR} = "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/uldr.bin.500mhz ${D}${localstatedir}/update/uldr.bin
 	fi
-	if [ ${INCLUDE_ULDR} == "oc" ];then
+	if [ ${INCLUDE_ULDR} = "oc" ];then
 		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
 	fi
- 	if [ ${INCLUDE_U_BOOT} == "yes" ];then
+ 	if [ ${INCLUDE_U_BOOT} = "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
 	fi
- 	if [ ${CLEAN_VAR} == "yes" ];then
+ 	if [ ${CLEAN_VAR} = "yes" ];then
 		touch ${D}${localstatedir}/update/var.bin 
 	fi
- 	if [ ${CLEAN_ENV} == "yes" ];then
+ 	if [ ${CLEAN_ENV} = "yes" ];then
 		touch ${D}${localstatedir}/update/env.bin 
 	fi
 }
