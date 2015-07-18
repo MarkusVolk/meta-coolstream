@@ -1,9 +1,4 @@
-
-<<<<<<< HEAD
 ASNEEDED = "-Wl,--as-needed"
-=======
-ASNEEDED = "-Wl -Wno-format-security -Os ,--as-needed"
->>>>>>> parent of 9f38a3f... cleanup
 
 ASNEEDED_pn-console-tools = ""
 ASNEEDED_pn-distcc = ""
