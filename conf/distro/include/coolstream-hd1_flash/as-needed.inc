@@ -1,5 +1,5 @@
 
-ASNEEDED = "-Wl -Wno-format-security -Os ,--as-needed"
+ASNEEDED = "-Wl,--as-needed"
 
 ASNEEDED_pn-console-tools = ""
 ASNEEDED_pn-distcc = ""
