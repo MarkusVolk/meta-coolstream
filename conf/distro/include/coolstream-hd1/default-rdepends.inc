@@ -1,7 +1,6 @@
 RDEPENDS_winbind ?= "popt libpam"
 RDEPENDS_libwinbind ?= "libpam"
 RDEPENDS_swat ?= "popt libpam"
-RDEPENDS_samba_${PN} ?= "popt libpam libtdb openldap"
 RDEPENDS_busybox ?= "libpam"
 RDEPENDS_neutrino-hd ?= "luaposix tzdata cs-drivers-hd1 resolvconf"
 RDEPENDS_neutrino-mp ?= "luaposix tzdata cs-drivers-hd1 resolvconf"
