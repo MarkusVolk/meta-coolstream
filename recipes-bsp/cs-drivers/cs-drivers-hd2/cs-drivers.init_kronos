@@ -86,6 +86,7 @@ start)
 	dt -t"Loading drivers ..."
 
 	im dvb-core.ko
+	im dvb-api.ko
 	im blazer.ko
 	im tavor.ko
 	im a8296.ko

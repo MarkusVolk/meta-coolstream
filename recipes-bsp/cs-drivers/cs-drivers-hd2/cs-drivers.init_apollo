@@ -87,6 +87,7 @@ start)
 	dt -t"Loading drivers ..."
 
 	im dvb-core.ko
+	im dvb-api.ko
 	im typhoon
 	im a8296.ko
 	im av201x.ko
