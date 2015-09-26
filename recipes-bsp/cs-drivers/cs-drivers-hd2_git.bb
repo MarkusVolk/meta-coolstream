@@ -45,19 +45,16 @@ do_compile () {
 do_install () {
 	install -d ${D}/lib/modules/${KV}
 	cp -r ${S}/${BOXTYPE}-3.x/drivers/${KV}/extra ${D}/lib/modules/${KV}
-	cp ${S}/${BOXTYPE}-3.x/drivers/${KV}/modules.* ${D}/lib/modules/${KV}
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
 	cp -r ${S}/${BOXTYPE}-3.x/firmware/* ${D}/lib/firmware
 	# init script
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/cs-drivers.init_${BOXTYPE} ${D}${sysconfdir}/init.d/cs-drivers
-	rm ${D}/lib/modules/${KV}/modules.builtin
-	rm ${D}/lib/modules/${KV}/modules.order
 }
 
 do_install_append () {
-	if [ ${INCLUDE_ULDR} = "yes" ] || [ ${INCLUDE_U_BOOT} = "yes" ] || [ ${INCLUDE_ULDR} = "oc" ] || [ ${CLEAN_VAR} = "yes" ] || [ ${CLEAN_ENV} = "yes" ];then
+	if [ ${INCLUDE_ULDR} = "yes" ] || [ ${INCLUDE_U_BOOT} = "yes" ] || [ ${INCLUDE_ULDR} = "oc" ] || [ ${CLEAN_ENV} = "yes" ];then
 	install -d ${D}${localstatedir}/update
 	fi
 	if [ ${INCLUDE_ULDR} = "yes" ];then
@@ -69,11 +66,8 @@ do_install_append () {
  	if [ ${INCLUDE_U_BOOT} = "yes" ];then
 		cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
 	fi
- 	if [ ${CLEAN_VAR} = "yes" ];then
-		touch ${D}${localstatedir}/update/var.bin 
-	fi
  	if [ ${CLEAN_ENV} = "yes" ];then
-		touch ${D}${localstatedir}/update/env.bin 
+		touch ${D}${localstatedir}/update/.erase_env 
 	fi
 }
 
