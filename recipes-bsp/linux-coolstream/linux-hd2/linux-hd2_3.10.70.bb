@@ -18,11 +18,14 @@ SRC_URI = " \
 	file://${BOXTYPE}.dtb \
 	file://0001-arch-arm-vfp-Makefile-adjust-kbuild_aflags.patch;apply=yes \
 	file://0001-change-boot-splash.patch;apply=yes \
+	file://0001-fix-build-with-gcc-5.1.patch \
 "
 
 S = "${WORKDIR}/git"
 
 KERNEL_IMAGEDEST = "${localstatedir}/update"
+
+CFLAGS_append += "-Wno-maybe-uninitialized"
 
 kernel_do_configure_prepend() {
 	# install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
