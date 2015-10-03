@@ -19,6 +19,7 @@ SRC_URI = " \
 	file://0001-arch-arm-vfp-Makefile-adjust-kbuild_aflags.patch;apply=yes \
 	file://0001-change-boot-splash.patch;apply=yes \
 	file://0001-fix-build-with-gcc-5.1.patch \
+	file://rtl8712-avoid-lots-of-build-warnings.patch \
 "
 
 S = "${WORKDIR}/git"
