@@ -25,7 +25,7 @@ IMAGE_FEATURES ?= ""
 # directly part of the distribution. 
 HOSTTOOLS_WHITELIST_GPL-3.0 ?= ""
 WHITELIST_GPL-3.0 ?= "less"
-LGPLv2_WHITELIST_GPL-3.0 ?= "libassuan gnutls libtasn1 libidn gcc-source libgcc libgcc-initial gcc-runtime"
+LGPLv2_WHITELIST_GPL-3.0 ?= "libassuan gnutls libtasn1 libidn"
 
 COMMERCIAL_AUDIO_PLUGINS ?= ""
 # COMMERCIAL_AUDIO_PLUGINS ?= "gst-plugins-ugly-mad gst-plugins-ugly-mpegaudioparse"
@@ -47,3 +47,6 @@ SDK_VERSION ??= "${DISTRO}-${DISTRO_VERSION}"
 
 # Missing checksums should raise an error
 BB_STRICT_CHECKSUM = "1"
+
+GTK2DISTROFEATURES = "directfb x11"
+GTK3DISTROFEATURES = "x11 wayland"

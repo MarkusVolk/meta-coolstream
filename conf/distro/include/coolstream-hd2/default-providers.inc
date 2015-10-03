@@ -22,6 +22,8 @@ PREFERRED_PROVIDER_virtual/stb-hal-libs = "cs-drivers-hd2"
 VIRTUAL-RUNTIME_update-alternatives ?= "update-alternatives-opkg"
 VIRTUAL-RUNTIME_apm ?= "apm"
 VIRTUAL-RUNTIME_alsa-state ?= "alsa-state"
+VIRTUAL-RUNTIME_getopt ?= "util-linux-getopt"
+VIRTUAL-RUNTIME_wireless-tools ?= "iw wireless-tools"
 
 #
 # Default recipe providers
@@ -45,7 +47,8 @@ PREFERRED_PROVIDER_ffmpeg = "ffmpeg"
 PREFERRED_PROVIDER_jpeg-native = "libjpeg-turbo-native"
 # There are issues with runtime packages and PREFERRED_PROVIDER, see YOCTO #5044 for details
 # on this rather strange entry.
-PREFERRED_PROVIDER_bluez4 ?= "bluez4"
-PREFERRED_PROVIDER_bluez-hcidump ?= "bluez-hcidump"
+PREFERRED_PROVIDER_bluez4 ?= "${@bb.utils.contains('DISTRO_FEATURES','bluetooth bluez5','bluez5','bluez4',d)}"
+PREFERRED_PROVIDER_bluez-hcidump ?= "${@bb.utils.contains('DISTRO_FEATURES','bluetooth bluez5','bluez5','bluez-hcidump',d)}"
 # Alternative is ltp-ddt in meta-oe: meta-oe/recipes-devtools/ltp-ddt/ltp-ddt_0.0.4.bb
 PREFERRED_PROVIDER_ltp ?= "ltp"
+PREFERRED_PROVIDER_getopt ?= "util-linux-getopt"
