@@ -41,7 +41,7 @@ CMDLINE_coolstream = ""
 UDEV_GE_141 ?= "1"
 
 kernel_do_configure_prepend() {
-	# install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
+	make mrproper
 	cp '${WORKDIR}/defconfig' '${S}/.config'
 }
 
