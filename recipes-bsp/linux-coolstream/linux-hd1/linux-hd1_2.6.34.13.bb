@@ -41,7 +41,7 @@ CMDLINE_coolstream = ""
 UDEV_GE_141 ?= "1"
 
 kernel_do_configure_prepend() {
-	make mrproper
+	cd ${S} && make mrproper
 	cp '${WORKDIR}/defconfig' '${S}/.config'
 }
 

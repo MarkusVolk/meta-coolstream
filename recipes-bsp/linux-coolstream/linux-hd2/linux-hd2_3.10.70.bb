@@ -29,7 +29,7 @@ KERNEL_IMAGEDEST = "${localstatedir}/update"
 CFLAGS_append += "-Wno-maybe-uninitialized"
 
 kernel_do_configure_prepend() {
-	make mrproper
+	cd ${S} && make mrproper
 	cp '${WORKDIR}/${BOXTYPE}_defconfig' '${S}/.config'
 }
 
