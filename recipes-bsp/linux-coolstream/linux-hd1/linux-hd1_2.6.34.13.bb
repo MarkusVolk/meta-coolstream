@@ -46,11 +46,15 @@ kernel_do_configure_prepend() {
 }
 
 kernel_do_install_prepend() {
+	install -d ${D}${localstatedir}/update ${D}/lib/firmware
 	uboot-mkimage -A arm -O linux -T kernel -a 0x048000 -e 0x048000 -C none \
 		-n "CS HD1 Kernel ${PV} (zImage)" -d arch/arm/boot/zImage zImage.img
 	# hack: we replace the zImage with the U-Boot image...
 	mv arch/arm/boot/zImage arch/arm/boot/zImage.orig
 	mv zImage.img arch/arm/boot/zImage
+	if [ ${INCLUDE_KERNEL} = "yes" ];then
+	install arch/arm/boot/zImage ${D}${localstatedir}/update/uImage
+	fi
 }
 
 kernel_do_install_append() {
@@ -58,8 +62,11 @@ kernel_do_install_append() {
 	rm    ${D}/lib/modules/${KV}/kernel/drivers/media/dvb/dvb-core/dvb-core.ko
 	rmdir ${D}/lib/modules/${KV}/kernel/drivers/media/dvb/dvb-core
 	rmdir ${D}/lib/modules/${KV}/kernel/drivers/media/dvb
-	# install -d ${D}/lib/firmware
+	rm -f ${D}${localstatedir}/update/zImage-${KERNEL_VERSION}
+	rm -rf ${WORKDIR}/image/boot
 }
+	
+FILES_kernel-image = "/var/update"
 
 SRC_URI[md5sum] = "ec72935604c58d26b044e0cb2a496a3b"
 SRC_URI[sha256sum] = "cb50a9ec2e24fb0d02eb4983e5c7bc61725cdcf212813a79121a0bb12ac0b4ce"
