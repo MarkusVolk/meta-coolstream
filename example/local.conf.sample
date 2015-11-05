@@ -116,7 +116,7 @@ IMAGE_INSTALL_append += ""
 # Web server from which packages are updated. Defaults to local folder on your cst harddrive.
 IPK_FEED_SERVER = "file:////media/sda1/service/ipk-${TCLIBC}"
 
-# choose "yes" if you want the kernel inside your image. It will be flashed at first boot (only coolstream-hd2)
+# choose "yes" if you want the kernel inside your image. It will be flashed at first boot
 INCLUDE_KERNEL ?= ""
 
 # choose "yes" if you want the uldr inside your image. It will be flashed at first boot (only coolstream-hd2)
