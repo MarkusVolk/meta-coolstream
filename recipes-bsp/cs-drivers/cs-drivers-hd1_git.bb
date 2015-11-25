@@ -15,7 +15,7 @@ Pn = "r1"
 
 KV = "2.6.34.13"
 KV_FULL = "${KV}-nevis"
-SRCREV = "e7dda06743e0028a86927e83643c4d38bca7d80a"
+SRCREV = "${AUTOREV}"
 PV = "${SRCPV}"
 
 SRC_URI = " \
