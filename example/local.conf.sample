@@ -78,7 +78,7 @@ NEUTRINO_FLAVOUR = "neutrino-hd"
 # Choose your Boxtype (only coolstream-hd2). Possible values are kronos or apollo:
 BOXTYPE ?= "kronos"
 
-# If your Boxtype is apollo, choose your Boxmodel. Possible values are tank or trinity:
+# Choose your Boxmodel. Possible values are tank, trinity or link. Keep empty for trinity(v2) or zee2:
 BOXMODEL ?= ""
 
 #choose your Imagetype. Possible values are tiny, normal or full. You have to select tiny if you want the image to fit in the hd-1 flash memory:
@@ -120,7 +120,6 @@ IPK_FEED_SERVER = "file:////media/sda1/service/ipk-${TCLIBC}"
 INCLUDE_KERNEL ?= ""
 
 # choose "yes" if you want the uldr inside your image. It will be flashed at first boot (only coolstream-hd2)
-# you also may choose "oc", if you want the overclocked uldr, but do it at your own risk
 # if anything fails, you might be forced to recover your stb using the serial console
 # unless you are not capable of doing this, please leave empty. you have been warned !
 INCLUDE_ULDR ?= ""

@@ -54,17 +54,18 @@ do_install () {
 }
 
 do_install_append () {
-	if [ ${INCLUDE_ULDR} = "yes" ] || [ ${INCLUDE_U_BOOT} = "yes" ] || [ ${INCLUDE_ULDR} = "oc" ] || [ ${CLEAN_ENV} = "yes" ];then
+	if [ ${INCLUDE_ULDR} = "yes" ] || [ ${INCLUDE_U_BOOT} = "yes" ] || [ ${CLEAN_ENV} = "yes" ];then
 	install -d ${D}${localstatedir}/update
 	fi
 	if [ ${INCLUDE_ULDR} = "yes" ];then
-		cp ${S}/${BOXTYPE}-3.x/uldr.bin.500mhz ${D}${localstatedir}/update/uldr.bin
-	fi
-	if [ ${INCLUDE_ULDR} = "oc" ];then
-		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/
+		cp ${S}/${BOXTYPE}-3.x/uldr.bin ${D}${localstatedir}/update/uldr.bin
 	fi
  	if [ ${INCLUDE_U_BOOT} = "yes" ];then
-		cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
+		if [ ${BOXMODEL} = "link" ];then
+			cp ${S}/${BOXTYPE}-3.x/u-boot.bin.link ${D}${localstatedir}/update/
+		else
+			cp ${S}/${BOXTYPE}-3.x/u-boot.bin ${D}${localstatedir}/update/
+		fi
 	fi
  	if [ ${CLEAN_ENV} = "yes" ];then
 		touch ${D}${localstatedir}/update/.erase_env 
