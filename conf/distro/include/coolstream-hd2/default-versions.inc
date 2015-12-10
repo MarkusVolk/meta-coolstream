@@ -2,7 +2,7 @@
 # Default preferred versions
 #
 # currently usable kernel version, use the same for headers
-KV = "3.10.70"
+KV = "3.10.93"
 LINUXLIBCVERSION ?= "${KV}"
 
 PREFERRED_VERSION_luaposix = "31"
