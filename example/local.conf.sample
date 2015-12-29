@@ -105,6 +105,10 @@ PROVIDER = "gmail"
 
 # put your yt_dev_id here, if you need working youtube playback
 YT_DEV_KEY = ""
+# put your tmdb_dev_id here, if you want to receive additional movie information
+TMDB_DEV_KEY = ""
+# put your shoutcast_dev_id here, if you need shoutcast functionality
+SHOUTCAST_DEV_KEY = ""
 
 # comment out the following line if you want to build ffmpeg from the official git master branch
 PREFERRED_VERSION_ffmpeg = "2.6"
