@@ -24,7 +24,7 @@ inherit image_types
 # 0                      1MiB     1MiB + 20MiB       1MiB + 20Mib + USBIMG_ROOTFS
 
 # This image depends on the rootfs image
-IMAGE_TYPEDEP_hd1-usbimg = "${USBIMG_ROOTFS_TYPE}"
+IMAGE_TYPEDEP_usbimg = "${USBIMG_ROOTFS_TYPE}"
 
 # Boot partition volume id
 BOOTDD_VOLUME_ID ?= "KERNEL"
@@ -32,14 +32,14 @@ BOOTDD_VOLUME_ID ?= "KERNEL"
 # Boot partition size [in KiB] (will be rounded up to IMAGE_ROOTFS_ALIGNMENT)
 BOOT_SPACE ?= "20480"
 
-# Set alignment to 4MB [in KiB]
+# Set alignment to 1MB [in KiB]
 IMAGE_ROOTFS_ALIGNMENT = "1024"
 
 # Use an uncompressed ext3 by default as rootfs
 USBIMG_ROOTFS_TYPE ?= "ext3"
 USBIMG_ROOTFS = "${IMAGE_NAME}.rootfs.${USBIMG_ROOTFS_TYPE}"
 
-IMAGE_DEPENDS_hd1-usbimg = " \
+IMAGE_DEPENDS_usbimg = " \
 	parted-native \
 	mtools-native \
 	dosfstools-native \
@@ -47,10 +47,10 @@ IMAGE_DEPENDS_hd1-usbimg = " \
 "
 
 # USB image name
-USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.hd1-usbimg"
+USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.usbimg"
 
 # Compression method to apply to USBIMG after it has been created. Supported
-# compression formats are "gzip", "bzip2" or "xz". The original .hd1-usbimg file
+# compression formats are "gzip", "bzip2" or "xz". The original .usbimg file
 # is kept and a new compressed file is created if one of these compression
 # formats is chosen. If USBIMG_COMPRESSION is set to any other value it is
 # silently ignored.
@@ -61,7 +61,7 @@ FATPAYLOAD ?= ""
 
 IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
 
-IMAGE_CMD_hd1-usbimg () {
+IMAGE_CMD_usbimg () {
 
 	# Align partitions
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
@@ -128,4 +128,7 @@ IMAGE_CMD_hd1-usbimg () {
 	esac
 }
 
-# ROOTFS_POSTPROCESS_COMMAND += ""
+python do_usbimg() {
+        bb.build.exec_func('IMAGE_CMD_usbimg', d)
+}
+
