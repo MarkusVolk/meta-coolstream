@@ -127,8 +127,3 @@ IMAGE_CMD_usbimg () {
 		;;
 	esac
 }
-
-python do_usbimg() {
-        bb.build.exec_func('IMAGE_CMD_usbimg', d)
-}
-
