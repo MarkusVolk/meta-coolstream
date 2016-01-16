@@ -126,18 +126,6 @@ IMAGE_CMD_hd1-usbimg () {
 		xz -k "${USBIMG}"
 		;;
 	esac
-
-	mkdir -p ${DEPLOY_DIR_IMAGE}/flashimage/coolstream
-	if [ ${IMAGETYPE} = "tiny" ]; then
-	rm -rf ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/*
-	cp ${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.jffs2.sum ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/system.img
-	cp ${DEPLOY_DIR_IMAGE}/zImage ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/kernel.img
-			if [ ${INCLUDE_KERNEL} = "yes" ];then
-			mv ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/system.img ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/flashimage.img
-			fi
-	else rm -rf ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/*
-	touch ${DEPLOY_DIR_IMAGE}/flashimage/coolstream/"please select IMAGETYPE ?= \"tiny\" in local.conf"
-	fi
 }
 
 # ROOTFS_POSTPROCESS_COMMAND += ""
