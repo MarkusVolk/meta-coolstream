@@ -47,7 +47,7 @@ IMAGE_DEPENDS_usbimg = " \
 "
 
 # USB image name
-USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.usbimg"
+USBIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.usb.img"
 
 # Compression method to apply to USBIMG after it has been created. Supported
 # compression formats are "gzip", "bzip2" or "xz". The original .usbimg file
