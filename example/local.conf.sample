@@ -84,6 +84,9 @@ BOXMODEL ?= ""
 #choose your Imagetype. Possible values are tiny, normal or full. You have to select tiny if you want the image to fit in the hd-1 flash memory:
 IMAGETYPE ?= "normal"
 
+# set initial passwort for user root. Keep empty for root:
+ROOTPW = ""
+
 # Choose which plugins should be installed 
 PLUGIN_INSTALL += "msgbox tuxcom shellexec tuxmail"
 
