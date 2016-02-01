@@ -24,9 +24,9 @@ PACKAGE_CLASSES ?= "package_ipk"
 #SDKMACHINE ?= "i686"
 SDKMACHINE = "x86_64"
 
-EXTRA_IMAGE_FEATURES = "debug-tweaks"
+EXTRA_IMAGE_FEATURES = "debug-tweaks package-management"
 
-IMAGE_FEATURES ?= "package-management"
+IMAGE_FEATURES ?= ""
 
 USER_CLASSES ?= "buildstats image-mklibs image-prelink"
 
