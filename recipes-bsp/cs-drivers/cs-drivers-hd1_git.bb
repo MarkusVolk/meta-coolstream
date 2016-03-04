@@ -56,7 +56,6 @@ do_install () {
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
 	cp -R nevis/libs/* ${D}/lib/
-	cp -R nevis/firmware/* ${D}/lib/firmware
 	# init script
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/cs-drivers.init ${D}${sysconfdir}/init.d/cs-drivers

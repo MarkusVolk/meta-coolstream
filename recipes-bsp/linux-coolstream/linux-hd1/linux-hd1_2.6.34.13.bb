@@ -27,6 +27,7 @@ SRC_URI = "http://www.kernel.org/pub/linux/kernel/v2.6/longterm/v2.6.34/linux-2.
 	file://0016-config-2.6.34.13-enable-nfs-server-for-image-2.11.patch \
 	file://0001-ARM-6329-1-wire-up-sys_accept4-on-ARM.patch \
 	file://defconfig \
+	file://dvb-fe-avl2108.fw \
 "
 
 S = "${WORKDIR}/linux-${PV}"
@@ -43,6 +44,7 @@ UDEV_GE_141 ?= "1"
 kernel_do_configure_prepend() {
 	cd ${S} && make mrproper
 	cp '${WORKDIR}/defconfig' '${S}/.config'
+	cp '${WORKDIR}/dvb-fe-avl2108.fw' '${S}/firmware/dvb-fe-avl2108.fw'
 }
 
 kernel_do_install_prepend() {
