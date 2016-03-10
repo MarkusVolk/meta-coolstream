@@ -13,11 +13,6 @@ BBLAYERS ?= " \
   ##COREBASE##/meta-neutrino \
   "
 
-BBLAYERS_NON_REMOVABLE ?= " \
-  ##COREBASE##/meta \
-  ##COREBASE##/meta-yocto \
-  "
-
 BBFILES += "${TOPDIR}/recipes/images/custom/*.bb"
 BBFILES += "${TOPDIR}/recipes/images/*.bb"
 
