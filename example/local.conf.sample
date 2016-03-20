@@ -113,7 +113,7 @@ TMDB_DEV_KEY = ""
 # put your shoutcast_dev_id here, if you need shoutcast functionality
 SHOUTCAST_DEV_KEY = ""
 
-# comment out the following line if you want to build ffmpeg from the official git master branch
+# Select the ffmpeg source version. Possible values are 2.6 or 3.0
 PREFERRED_VERSION_ffmpeg = "2.6"
 
 # Put additional packages that should be packaged in your image here. Separated just with a whitespace and without comma. 
