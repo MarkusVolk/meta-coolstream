@@ -1,6 +1,7 @@
 include neutrino.inc
 
 DEVTOOL_STRIP = "yes"
+EXTERNALSRC = "/home/usr/source/neutrino"
 
 do_install_append() {
 	rm -r ${D}/etc
