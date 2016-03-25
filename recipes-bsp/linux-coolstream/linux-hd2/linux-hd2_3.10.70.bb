@@ -12,7 +12,7 @@ SRCREV = "${AUTOREV}"
 PV = "${KV}+${SRCPV}"
 
 SRC_URI = " \
-	git://git.slknet.de/git/cst-public-linux-kernel.git;branch=cst_3.10;protocol=git \
+        git://github.com/coolstreamtech/cst-public-linux-kernel.git;branch=cst_3.10;protocol=git \
 	file://COPYING.GPL \
 	file://${BOXTYPE}_defconfig \
 	file://${BOXTYPE}.dtb \
