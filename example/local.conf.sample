@@ -81,8 +81,11 @@ BOXTYPE ?= "kronos"
 # Choose your Boxmodel. Possible values are tank, trinity or link. Keep empty for trinity(v2) or zee2:
 BOXMODEL ?= ""
 
-#choose your Imagetype. Possible values are tiny, normal or full. You have to select tiny if you want the image to fit in the hd-1 flash memory:
+# Choose your Imagetype. Possible values are tiny, normal or full. You have to select tiny if you want the image to fit in the hd-1 flash memory:
 IMAGETYPE ?= "normal"
+
+# Create usb images for coolstream-hd2 hardware ?
+USBIMAGE = "no"
 
 # set initial passwort for user root. Keep empty for root:
 ROOTPW = ""
