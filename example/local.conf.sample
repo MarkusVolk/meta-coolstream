@@ -24,6 +24,9 @@ PACKAGE_CLASSES ?= "package_ipk"
 #SDKMACHINE ?= "i686"
 SDKMACHINE = "x86_64"
 
+# Activating this saves a lot of space for a small increase of build time
+#INHERIT += "rm_work"
+
 EXTRA_IMAGE_FEATURES = "debug-tweaks package-management"
 
 IMAGE_FEATURES ?= ""
