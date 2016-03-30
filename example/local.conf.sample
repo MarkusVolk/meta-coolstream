@@ -119,8 +119,8 @@ TMDB_DEV_KEY = ""
 # put your shoutcast_dev_id here, if you need shoutcast functionality
 SHOUTCAST_DEV_KEY = ""
 
-# Select the ffmpeg source version. Possible values are 2.6 or 3.0
-PREFERRED_VERSION_ffmpeg = "2.6"
+# Select the ffmpeg source version. Possible values are 2.8.6 or 3.0
+PREFERRED_VERSION_ffmpeg = "head"
 
 # Put additional packages that should be packaged in your image here. Separated just with a whitespace and without comma. 
 # If you want developement tools in your image, add "packagegroup-custom-dev-utils" 
