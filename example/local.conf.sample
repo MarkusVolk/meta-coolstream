@@ -130,7 +130,7 @@ IMAGE_INSTALL_append += ""
 IPK_FEED_SERVER = "file:////media/sda1/service/ipk"
 IMAGE_LOCATION = "file:////media/sda1/service/image/flashimage.img"
 RELEASE_TEXT_LOCATION = "file:////media/sda1/service/image/beta.txt" 
-RELEASE_TEXT_LOCATION_HOST = "/var/www/images/zee2/beta.txt"
+#RELEASE_TEXT_LOCATION_HOST = "/var/www/images/zee2/beta.txt"
 
 # choose "yes" if you want the kernel inside your image. It will be flashed at first boot
 INCLUDE_KERNEL ?= ""
