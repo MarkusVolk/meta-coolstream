@@ -19,7 +19,6 @@ PV = "${SRCPV}"
 
 SRC_URI = " \
 	git://github.com/coolstreamtech/cst-public-drivers.git \
-	file://cs-drivers.init_${BOXTYPE} \
 	file://license \
 "
 
@@ -48,9 +47,6 @@ do_install () {
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
 	cp -r ${S}/${BOXTYPE}-3.x/firmware/* ${D}/lib/firmware
-	# init script
-	install -d ${D}${sysconfdir}/init.d
-	install -m 0755 ${WORKDIR}/cs-drivers.init_${BOXTYPE} ${D}${sysconfdir}/init.d/cs-drivers
 }
 
 do_install_append () {
@@ -80,18 +76,11 @@ do_install_append_libc-glibc () {
 	cp -r ${S}/${BOXTYPE}-3.x/libs-eglibc/* ${D}/lib/
 }
 
-# initscript
-inherit update-rc.d
-
-INITSCRIPT_NAME = "cs-drivers"
-INITSCRIPT_PARAMS = "start 50 S ."
-
 FILES_${PN} = " \
 	${localstatedir}/update \
 	/lib/* \
 	/lib/firmware/* \
 	/lib/modules/* \
-	${sysconfdir} \
 "
 
 # do not put the *.so into -dev package
