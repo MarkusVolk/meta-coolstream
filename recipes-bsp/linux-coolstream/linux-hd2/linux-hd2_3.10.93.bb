@@ -32,6 +32,7 @@ kernel_do_configure_prepend() {
 	make mrproper
 	fi
 	cp '${WORKDIR}/${BOXTYPE}_defconfig' '${S}/.config'
+	ln -sf ${S}/include/linux/compiler-gcc5.h ${S}/include/linux/compiler-gcc6.h
 }
 
 kernel_do_install_prepend() {
