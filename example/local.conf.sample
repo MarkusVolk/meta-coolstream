@@ -75,7 +75,7 @@ TCLIBC ?= "uclibc"
 
 ### Image Settings
 
-# Choose neutrino source. Possible values are "neutrino-hd" or "neutrino-mp"
+# Choose neutrino source. Possible values are "neutrino-hd", "neutrino-ni" or "neutrino-mp"
 NEUTRINO_FLAVOUR = "neutrino-hd"
 
 # Choose your Boxtype. Possible values are kronos or apollo:
@@ -120,7 +120,7 @@ TMDB_DEV_KEY = ""
 SHOUTCAST_DEV_KEY = ""
 
 # Select the ffmpeg source version. Possible values are 2.8.6 or 3.0.2
-PREFERRED_VERSION_ffmpeg = "3.0.2"
+PREFERRED_VERSION_ffmpeg = "3.%"
 
 # Put additional packages that should be packaged in your image here. Separated just with a whitespace and without comma. 
 # If you want developement tools in your image, add "packagegroup-custom-dev-utils" 
