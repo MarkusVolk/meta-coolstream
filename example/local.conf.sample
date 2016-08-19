@@ -71,6 +71,10 @@ MACHINE ?= "coolstream-hd2"
 # Choose wether to use glibc or uclibc
 TCLIBC ?= "uclibc"
 
+IMAGE_LINGUAS ?= "de-de"
+ENABLE_BINARY_LOCALE_GENERATION ?= "1"
+GLIBC_GENERATE_LOCALES = "de_DE.UTF-8"
+LOCALE_GENERATION_WITH_CROSS-LOCALEDEF = "1"
 
 
 ### Image Settings
