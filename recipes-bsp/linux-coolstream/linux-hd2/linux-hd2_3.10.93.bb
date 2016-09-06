@@ -52,6 +52,7 @@ kernel_do_install_prepend() {
 
 kernel_do_install_append() {
 	rm -f ${D}${localstatedir}/update/zImage-${KERNEL_VERSION}
+	cp -u arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}/flashimage/vmlinux.ub.gz;
 }
 	
 FILES_kernel-image = "/var/update"
