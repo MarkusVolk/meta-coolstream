@@ -52,6 +52,9 @@ kernel_do_install_prepend() {
 
 kernel_do_install_append() {
 	rm -f ${D}${localstatedir}/update/zImage-${KERNEL_VERSION}
+	if [ ! -d ${DEPLOY_DIR_IMAGE}/flashimage ];then
+		mkdir -p ${DEPLOY_DIR_IMAGE}/flashimage
+	fi
 	cp -u arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}/flashimage/vmlinux.ub.gz;
 }
 	
