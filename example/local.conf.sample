@@ -11,7 +11,7 @@ PARALLEL_MAKE ?= "-j 4"
 
 ### System variables
 
-DL_DIR ?= "${YOCTO_BASEDIR}/yocto-downloads"
+DL_DIR ?= "~/yocto-downloads"
 
 SSTATE_DIR = "${TOPDIR}/sstate-cache"
 
@@ -25,7 +25,7 @@ PACKAGE_CLASSES ?= "package_ipk"
 SDKMACHINE = "x86_64"
 
 # Activating this saves a lot of space for a small increase of build time
-#INHERIT += "rm_work"
+INHERIT += "rm_work"
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks package-management"
 
@@ -149,8 +149,7 @@ INCLUDE_ULDR ?= ""
 # unless you are not capable of doing this, please leave empty. you have been warned !
 INCLUDE_U_BOOT ?= ""
 
-# This might be needed on the kronos platform, if the kernel is not able to mount the rootfs. Leave empty unless you got problems
-CLEAN_ENV= ""
+
 
 
 
