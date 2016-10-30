@@ -1,0 +1,14 @@
+--- a/kernel/timeconst.pl	2016-10-30 19:00:06.867900293 +0100
++++ b/kernel/timeconst.pl	2016-10-30 18:59:23.821756742 +0100
+@@ -370,9 +370,9 @@
+ 	}
+ 
+ 	@val = @{$canned_values{$hz}};
+-	if (!defined(@val)) {
++#	if (!defined(@val)) {
+ 		@val = compute_values($hz);
+-	}
++#	}
+ 	output($hz, @val);
+ }
+ exit 0;
