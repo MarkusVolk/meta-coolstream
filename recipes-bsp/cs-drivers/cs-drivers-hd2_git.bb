@@ -18,7 +18,7 @@ SRCREV = "${AUTOREV}"
 PV = "${SRCPV}"
 
 SRC_URI = " \
-	git://github.com/coolstreamtech/cst-public-drivers.git \
+	git://github.com/tuxbox-neutrino/drivers-bin-cst.git \
 	file://license \
 "
 
