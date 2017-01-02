@@ -12,7 +12,7 @@ SRCREV = "${AUTOREV}"
 PV = "${KV}+${SRCPV}"
 
 SRC_URI = " \
-	git://github.com/coolstreamtech/cst-public-linux-kernel.git;branch=cst_3.10.93;protocol=git \
+	git://github.com/tuxbox-neutrino/linux-kernel-cst.git;branch=cst_3.10.93;protocol=git \
 	file://COPYING.GPL \
 	file://${BOXTYPE}_defconfig \
 	file://${BOXTYPE}.dtb \
@@ -28,7 +28,7 @@ KERNEL_IMAGEDEST = "${localstatedir}/update"
 CFLAGS_append += "-Wno-maybe-uninitialized"
 
 kernel_do_configure_prepend() {
-	if [ -f .config ];then 
+	if [ -f .config ];then
 	make mrproper
 	fi
 	cp '${WORKDIR}/${BOXTYPE}_defconfig' '${S}/.config'
@@ -57,6 +57,5 @@ kernel_do_install_append() {
 	fi
 	cp -u arch/arm/boot/zImage ${DEPLOY_DIR_IMAGE}/flashimage/vmlinux.ub.gz;
 }
-	
-FILES_kernel-image = "/var/update"
 
+FILES_kernel-image = "/var/update"
