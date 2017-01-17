@@ -78,7 +78,7 @@ start)
 	im lnxpvrDrv.ko
 	im lnxdvbciDrv.ko
 	im lnxIPfeDrv.ko
-	im framebuffer.ko cnxtfb_standalone=1 cnxtfb_hdwidth=1280 cnxtfb_hdheight=720 cnxtfb_autoscale_sd=2
+	im framebuffer.ko cnxtfb_standalone=1 cnxtfb_hdwidth=1920 cnxtfb_hdheight=1080 cnxtfb_hdmaxwidth=1920 cnxtfb_hdmaxheight=1080 cnxtfb_autoscale_sd=2
 	im control.ko
 	im frontpanel.ko
 
