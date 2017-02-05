@@ -26,6 +26,8 @@ SDKMACHINE = "x86_64"
 
 # Activating this saves a lot of space for a small increase of build time
 #INHERIT += "rm_work"
+# If rm_work is inherited you need to exclude uclibc-initial
+#RM_WORK_EXCLUDE = "uclibc-initial"
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks package-management"
 
