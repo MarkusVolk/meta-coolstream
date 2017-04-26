@@ -119,7 +119,7 @@ TMDB_DEV_KEY = ""
 SHOUTCAST_DEV_KEY = ""
 
 # Select the ffmpeg source version. Possible values are 2.8.6 or 3.0
-PREFERRED_VERSION_ffmpeg = "3.0"
+PREFERRED_VERSION_ffmpeg = "3.24"
 
 # Put additional packages that should be packaged in your image here. Separated just with a whitespace and without comma. 
 # If you want developement tools in your image, add "packagegroup-custom-dev-utils" 
