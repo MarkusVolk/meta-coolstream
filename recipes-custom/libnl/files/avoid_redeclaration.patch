@@ -1,0 +1,21 @@
+--- a/include/linux-private/linux/if_bridge.h	2017-09-25 18:57:30.917286035 +0200
++++ b/include/linux-private/linux/if_bridge.h	2017-09-25 18:57:20.772896738 +0200
+@@ -15,7 +15,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/if_ether.h>
+-#include <linux/in6.h>
++//#include <linux/in6.h>
+ 
+ #define SYSFS_BRIDGE_ATTR	"bridge"
+ #define SYSFS_BRIDGE_FDB	"brforward"
+--- a/include/linux-private/linux/ipv6.h	2017-09-25 18:57:41.110677213 +0200
++++ b/include/linux-private/linux/ipv6.h	2017-09-25 18:56:58.620046610 +0200
+@@ -2,7 +2,7 @@
+ #define _IPV6_H
+ 
+ #include <asm/byteorder.h>
+-#include <linux/in6.h>
++//#include <linux/in6.h>
+ 
+ /* The latest drafts declared increase in minimal mtu up to 1280. */

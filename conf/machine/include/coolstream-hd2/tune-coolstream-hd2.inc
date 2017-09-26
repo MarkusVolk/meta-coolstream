@@ -1,20 +1,7 @@
-DEFAULTTUNE ?= "cortexa9hf"
+TARGET_ARCH = "arm"
 
-require conf/machine/include/arm/arch-armv7a.inc
+DEFAULTTUNE ?= "cortexa9hf-vfpv3"
 
+require conf/machine/include/tune-cortexa9.inc
 
-TUNEVALID[cortexa9] = "Enable Cortex-A9 specific processor optimizations"
-TUNE_CCARGS .= "${@bb.utils.contains("TUNE_FEATURES", "cortexa9", " -march=armv7-a -mtune=cortex-a9", "", d)}"
-TUNE_CCARGS += "${@bb.utils.contains("TUNE_FEATURES", "vfp", " -mfpu=vfpv3-d16-fp16 -mfloat-abi=hard", "", d)}"
-
-# Little Endian base configs
-AVAILTUNES += "cortexa9"
-ARMPKGARCH_tune-cortexa9 = "cortexa9"
-TUNE_FEATURES_tune-cortexa9 = "${TUNE_FEATURES_tune-armv7a} cortexa9"
-PACKAGE_EXTRA_ARCHS_tune-cortexa9 = "${PACKAGE_EXTRA_ARCHS_tune-armv7a} cortexa9-vfp"
-
-# VFP Tunes
-AVAILTUNES += "cortexa9hf"
-ARMPKGARCH_tune-cortexa9hf = "cortexa9"
-TUNE_FEATURES_tune-cortexa9hf ?= "${TUNE_FEATURES_tune-armv7ahf} cortexa9"
-PACKAGE_EXTRA_ARCHS_tune-cortexa9hf = "${PACKAGE_EXTRA_ARCHS_tune-armv7ahf} cortexa9hf-vfp"
+PACKAGE_EXTRA_ARCHS  = "cortexa9hf-vfpv3"

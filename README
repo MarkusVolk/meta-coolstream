@@ -1,14 +1,8 @@
-This is my first try at creating a BSP layer for the
-Coolstream HD1 Set-Top-Box models (HD1, neo, neo², zee)
+A Layer for creating images designed for and including the neutrino settop box software. It builds with current yocto poky release "Rocko" and probably also future releases. 
 
-It is not yet finished and some hacks in it need improvement.
+Lots of information has been taken from other layers or found elsewhere in the net. It contains recipes and settings for the "Coolstream HD2" Settop Boxes.  
 
-Anyway, have a lot of fun...
+This is published under the BSD-2-Clause License. You should find a copy of the license in your yocto/poky/meta/files/common-licenses folder.
 
-	Stefan Seyfried
-
-It s nothing in here that reinvents the wheel. It is mostly a collection of dirty hacks to get things working somehow. Just to be correctly and to express, that forking and improving this layers is very welcome: 
-
-All changes that i have made to this layer are published under the BSD-2-Clause License. You should find a copy of the license in your yocto/poky/meta/files/common-licenses folder
-
+	September 2017
 	Markus Volk

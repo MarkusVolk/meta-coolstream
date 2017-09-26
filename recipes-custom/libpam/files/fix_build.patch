@@ -1,0 +1,11 @@
+--- a/modules/pam_rhosts/pam_rhosts.c	2017-09-25 17:23:24.073151032 +0200
++++ b/modules/pam_rhosts/pam_rhosts.c	2017-09-25 17:22:35.769784387 +0200
+@@ -113,7 +113,7 @@
+ #ifdef HAVE_RUSEROK_AF
+     retval = ruserok_af (rhost, as_root, ruser, luser, PF_UNSPEC);
+ #else
+-    retval = ruserok (rhost, as_root, ruser, luser);
++//    retval = ruserok (rhost, as_root, ruser, luser);
+ #endif
+     if (retval != 0) {
+       if (!opt_silent || opt_debug)

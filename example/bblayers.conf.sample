@@ -6,10 +6,9 @@ YOCTO_BASEDIR ?= "##COREBASE##"
 BBPATH = "${TOPDIR}"
 BBFILES ?= ""
 BBLAYERS ?= " \
-  ##COREBASE##/meta \
-  ##COREBASE##/meta-yocto \
-  ##COREBASE##/meta-yocto-bsp \
   ##COREBASE##/meta-coolstream \
+  ##COREBASE##/meta \
+  ##COREBASE##/meta-yocto-bsp \
   ##COREBASE##/meta-neutrino \
   "
 

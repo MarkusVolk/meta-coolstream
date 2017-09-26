@@ -7,9 +7,9 @@ COMPATIBLE_MACHINE = "coolstream-hd2"
 PROVIDES = "virtual/kernel"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r1"
+
 SRCREV = "${AUTOREV}"
-PV = "${KV}+${SRCPV}"
+
 
 SRC_URI = " \
 	git://github.com/tuxbox-neutrino/linux-kernel-cst.git;branch=cst_3.10.93;protocol=git \

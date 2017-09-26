@@ -1,0 +1,11 @@
+--- a/srclib/stdio.in.h	2017-09-25 16:36:58.787813287 +0200
++++ b/srclib/stdio.in.h	2017-09-25 16:39:53.143883739 +0200
+@@ -717,7 +717,7 @@
+ # endif
+ #endif
+ 
+-#if @GNULIB_GETS@
++#if 0
+ # if @REPLACE_STDIO_READ_FUNCS@ && @GNULIB_STDIO_H_NONBLOCKING@
+ #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
+ #   undef gets

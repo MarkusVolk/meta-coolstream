@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/license;md5=17a6b3d5436a55985b200c72576190
 
 COMPATIBLE_MACHINE = "coolstream-hd2"
 DEPENDS = "libbluray"
-PROVIDES = "virtual/stb-hal-libs"
-RPROVIDES_${PN} = "virtual/stb-hal-libs"
+PROVIDES = "virtual/libstb-hal"
+RPROVIDES_${PN} = "virtual/libstb-hal"
 
 # kernel modules are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -42,7 +42,7 @@ do_compile () {
 
 do_install () {
 	install -d ${D}/lib/modules/${KV}
-	cp -r ${S}/${BOXTYPE}-3.x/drivers/${KV}/extra ${D}/lib/modules/${KV}
+	cp -r ${S}/${BOXTYPE}-3.x/drivers/3.10.93/extra ${D}/lib/modules/3.10.93
 	# install -d ${D}${libdir}
 	install -d ${D}/lib/firmware
 	cp -r ${S}/${BOXTYPE}-3.x/firmware/* ${D}/lib/firmware
