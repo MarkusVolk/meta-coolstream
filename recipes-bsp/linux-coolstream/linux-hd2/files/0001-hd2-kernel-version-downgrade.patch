@@ -1,0 +1,25 @@
+From 03b74cfa310fb8b8785f2edc185b04688be78214 Mon Sep 17 00:00:00 2001
+Message-Id: <03b74cfa310fb8b8785f2edc185b04688be78214.1497522493.git.gandharva@gmx.de>
+From: gandharva <gandharva@gmx.de>
+Date: Thu, 15 Jun 2017 12:27:49 +0200
+Subject: [PATCH] - hd2 kernel: version downgrade
+
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 80e180e1e4a..6944160a563 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,6 @@
+ VERSION = 3
+ PATCHLEVEL = 10
+-SUBLEVEL = 107
++SUBLEVEL = 93
+ EXTRAVERSION =
+ NAME = TOSSUG Baby Fish
+ 
+-- 
+2.13.1
+

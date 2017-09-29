@@ -1,0 +1,1 @@
+SRC_URI_append_libc-uclibc = " file://replace_getrpcbynumber_r.patch"

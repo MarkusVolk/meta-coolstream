@@ -31,7 +31,6 @@ do_install_append() {
 		install -m 644 ${WORKDIR}/00-create-volatile_trinity.conf ${D}${sysconfdir}/tmpfiles.d/00-create-volatile.conf
 	fi
 	sed -i "s|slave|shared|" ${D}/lib/systemd/system/systemd-udevd.service
-	rm ${D}/etc/resolv.conf && touch ${D}/etc/resolv.conf
 }
 
 

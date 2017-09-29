@@ -23,7 +23,7 @@ RPROVIDES_${PN} += "libsegfault rtld(GNU_HASH)"
 
 do_install_append() {
 # create links for precompiled binaries
-	for i in librt libcrypt libdl libpthread; do
+	for i in libutil librt libcrypt libdl libpthread libm; do
 	ln -s ./libuClibc-${PV}.so ${D}${base_libdir}/$i.so.0
 	done
 }

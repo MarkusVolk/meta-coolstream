@@ -4,10 +4,11 @@ PRIORITY = "required"
 LICENSE = "proprietary"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/license;md5=17a6b3d5436a55985b200c725761907a"
 
-COMPATIBLE_MACHINE = "coolstream-hd2"
+
 DEPENDS = "libbluray"
-PROVIDES = "virtual/libstb-hal"
-RPROVIDES_${PN} = "virtual/libstb-hal"
+RDEPENDS_${PN} = "ffmpeg"
+PROVIDES = "virtual/libstb-hal virtual/dvb-driver"
+RPROVIDES_${PN} = "virtual/libstb-hal virtual/dvb-driver"
 
 # kernel modules are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"

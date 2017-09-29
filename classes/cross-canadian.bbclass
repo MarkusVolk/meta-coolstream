@@ -40,7 +40,7 @@ python () {
         extralibcs.append("uclibc")
     if "musl" in d.getVar("BASECANADIANEXTRAOS"):
         extralibcs.append("musl")
-    for variant in ["", "spe", "x32", "eabi", "n32"]:
+    for variant in ["", "spe", "x32", "eabi", "n32", "ilp32"]:
         for libc in extralibcs:
             entry = "linux"
             if variant and libc:
@@ -114,11 +114,6 @@ HOST_PREFIX = "${SDK_PREFIX}"
 HOST_CC_ARCH = "${SDK_CC_ARCH}"
 HOST_LD_ARCH = "${SDK_LD_ARCH}"
 HOST_AS_ARCH = "${SDK_AS_ARCH}"
-
-TARGET_CPPFLAGS = "${BUILDSDK_CPPFLAGS}"
-TARGET_CFLAGS = "${BUILDSDK_CFLAGS}"
-TARGET_CXXFLAGS = "${BUILDSDK_CXXFLAGS}"
-TARGET_LDFLAGS = "${BUILDSDK_LDFLAGS}"
 
 #assign DPKG_ARCH
 DPKG_ARCH = "${@debian_arch_map(d.getVar('SDK_ARCH'), '')}"
