@@ -24,9 +24,6 @@ PACKAGE_CLASSES ?= "package_ipk"
 #SDKMACHINE ?= "i686"
 SDKMACHINE = "x86_64"
 
-# Activating this saves a lot of space for a small increase of build time
-INHERIT += "rm_work"
-
 EXTRA_IMAGE_FEATURES = "debug-tweaks package-management"
 
 IMAGE_FEATURES ?= ""
@@ -68,9 +65,6 @@ CONF_VERSION = "1"
 # This sets the default machine to be qemux86 if no other machine is selected. Possible values are coolstream-hd1 or coolstream-hd2
 MACHINE ?= "coolstream-hd1"
 
-# Choose wether to use glibc or uclibc (only coolstream-hd2)
-# TCLIBC ?= "uclibc"
-
 
 ### Image Settings
 
@@ -93,7 +87,7 @@ USBIMAGE = "yes"
 ROOTPW = ""
 
 # Choose which plugins should be installed 
-PLUGIN_INSTALL += "msgbox tuxcom shellexec tuxmail"
+PLUGIN_INSTALL += "msgbox tuxcom shellexec input"
 
 # Add Image Maintainer here
 CREATOR = "Johnny Walker"
@@ -117,9 +111,6 @@ YT_DEV_KEY = ""
 TMDB_DEV_KEY = ""
 # put your shoutcast_dev_id here, if you need shoutcast functionality
 SHOUTCAST_DEV_KEY = ""
-
-# Select the ffmpeg source version. Possible values are 2.8.6 or 3.0
-PREFERRED_VERSION_ffmpeg = "3.24"
 
 # Put additional packages that should be packaged in your image here. Separated just with a whitespace and without comma. 
 # If you want developement tools in your image, add "packagegroup-custom-dev-utils" 
