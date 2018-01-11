@@ -10,6 +10,7 @@ BBLAYERS ?= " \
   ##COREBASE##/meta \
   ##COREBASE##/meta-yocto-bsp \
   ##COREBASE##/meta-neutrino \
+  ##COREBASE##/meta-poky \
   "
 
 BBFILES += "${TOPDIR}/recipes/images/custom/*.bb"
